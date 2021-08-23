@@ -1,6 +1,9 @@
 // const fetch = require('node-fetch');
 
-const randomNumber = Math.floor(Math.random() * 152);
+const enemyNumber = Math.floor(Math.random() * 152);
+const friendNumber1 = Math.floor(Math.random() * 152);
+const friendNumber2 = Math.floor(Math.random() * 152);
+const friendNumber3 = Math.floor(Math.random() * 152);
 
 async function fetchPkmn(id) {
   try {
@@ -43,7 +46,58 @@ async function enemyPkmn(callback, param) {
   }
 }
 
+async function friendPkmn1(callback, param) {
+  const friendPkmnName = document.querySelector('#friend-name-1');
+  const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-1');
+  const friendPkmnType1 = document.querySelector('#friend-type1-1');
+  const friendPkmnType2 = document.querySelector('#friend-type2-1');
+
+  const pkmn = await callback(param);
+
+  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnSpriteFront.src = pkmn.spriteFront;
+  friendPkmnType1.innerHTML = pkmn.type1;
+  if (pkmn.type1 !== pkmn.type2) {
+    friendPkmnType2.innerHTML = pkmn.type2
+  }
+}
+
+async function friendPkmn2(callback, param) {
+  const friendPkmnName = document.querySelector('#friend-name-2');
+  const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-2');
+  const friendPkmnType1 = document.querySelector('#friend-type1-2');
+  const friendPkmnType2 = document.querySelector('#friend-type2-2');
+
+  const pkmn = await callback(param);
+
+  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnSpriteFront.src = pkmn.spriteFront;
+  friendPkmnType1.innerHTML = pkmn.type1;
+  if (pkmn.type1 !== pkmn.type2) {
+    friendPkmnType2.innerHTML = pkmn.type2
+  }
+}
+
+async function friendPkmn3(callback, param) {
+  const friendPkmnName = document.querySelector('#friend-name-3');
+  const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-3');
+  const friendPkmnType1 = document.querySelector('#friend-type1-3');
+  const friendPkmnType2 = document.querySelector('#friend-type2-3');
+
+  const pkmn = await callback(param);
+
+  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnSpriteFront.src = pkmn.spriteFront;
+  friendPkmnType1.innerHTML = pkmn.type1;
+  if (pkmn.type1 !== pkmn.type2) {
+    friendPkmnType2.innerHTML = pkmn.type2
+  }
+}
+
 window.onload = async () => {
-  await enemyPkmn(fetchPkmn, randomNumber)
+  await enemyPkmn(fetchPkmn, enemyNumber);
+  await friendPkmn1(fetchPkmn,friendNumber1);
+  await friendPkmn2(fetchPkmn,friendNumber2);
+  await friendPkmn3(fetchPkmn,friendNumber3);
 };
 

@@ -28,7 +28,6 @@ async function fetchPkmn(id) {
     await console.log(error);
   }
 }
-// fetchPkmn(randomNumber);
 
 async function enemyPkmn(callback, param) {
   const enemyName = document.querySelector('#enemy-name');
@@ -100,4 +99,3 @@ window.onload = async () => {
   await friendPkmn2(fetchPkmn,friendNumber2);
   await friendPkmn3(fetchPkmn,friendNumber3);
 };
-

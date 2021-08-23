@@ -18,4 +18,4 @@ async function fetchPkmn(id) {
     await console.log(error);
   }
 }
-fetchPkmn(25);
+fetchPkmn(randomNumber);

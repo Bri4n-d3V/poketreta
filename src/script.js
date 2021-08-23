@@ -33,11 +33,14 @@ async function enemyPkmn(callback) {
   const enemyType1 = document.querySelector('#enemy-type1');
   const enemyType2 = document.querySelector('#enemy-type2');
 
-  enemyName.innerHTML = await callback(randomNumber).then(use => use.name);
-  enemySpriteFront.src = await callback(randomNumber).then(use => use.spriteFront);
-  enemyType1.innerHTML = await callback(randomNumber).then(use => use.type1)
-  enemyType2.innerHTML = await callback(randomNumber).then(use => use.type2)
+  const pkmn = await callback(randomNumber);
 
+  enemyName.innerHTML = pkmn.name;
+  enemySpriteFront.src = pkmn.spriteFront;
+  enemyType1.innerHTML = pkmn.type1;
+  if (pkmn.type1 !== pkmn.type2) {
+    enemyType2.innerHTML = pkmn.type2
+  }
 }
 
 window.onload = async () => {

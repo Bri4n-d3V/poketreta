@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Bri4n-d3V/poketreta#readme",
   "devDependencies": {
-    "jest": "^27.0.6"
+    "jest": "^27.0.6",
+    "node-fetch": "^2.6.1"
   }
 }

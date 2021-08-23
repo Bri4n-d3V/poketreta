@@ -20,28 +20,35 @@ header {
 }
 
 /* Main */
+/* Arena */
+main {
+  display: flex;
+  position: relative;
+  height: 80vh;
+}
+
 .area-enemy {
   background-color: rgb(82, 18, 18);
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  height: 150%;
   position: absolute;
   bottom: 0px;
-  right: -60%;
-  transform: skew(63deg);
-  -o-transform: skew(63deg);
-  -moz-transform: skew(63deg);
-  -webkit-transform: skew(63deg);
+  right: -65%;
+  transform: skew(74deg);
+  -o-transform: skew(74deg);
+  -moz-transform: skew(74deg);
+  -webkit-transform: skew(74deg);
 }
 
 .enemy-container {
   position: absolute;
-  right: 60%;
-  top: 18%;
+  right: 65%;
+  top: 44%;
   z-index: 50;
-  transform: skew(-63deg);
-  -o-transform: skew(-63deg);
-  -moz-transform: skew(-63deg);
-  -webkit-transform: skew(-63deg);
+  transform: skew(-74deg);
+  -o-transform: skew(-74deg);
+  -moz-transform: skew(-74deg);
+  -webkit-transform: skew(-74deg);
 }
 
 .ally-container {
@@ -52,10 +59,23 @@ header {
   top: 0;
   left: -50%;
   z-index: -10;
-  transform: skew(63deg);
-  -o-transform: skew(63deg);
-  -moz-transform: skew(63deg);
-  -webkit-transform: skew(63deg);
+  transform: skew(74deg);
+  -o-transform: skew(74deg);
+  -moz-transform: skew(74deg);
+  -webkit-transform: skew(74deg);
+}
+
+.versus {
+  background-color: coral;
+  width: 120px;
+  height: 120px;
+  margin: 15.55% 42%;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
 }
 
 /* Inventário */
@@ -64,8 +84,8 @@ header {
   display: flex;
   align-items: center;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: -2px;
   padding: 6px 0;
   justify-content: space-evenly;
   border: solid 6px rgb(8, 54, 4);

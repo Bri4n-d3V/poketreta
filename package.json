@@ -1,0 +1,26 @@
+{
+  "name": "poketreta",
+  "version": "1.0.0",
+  "description": "projeto on track da trybe",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bri4n-d3V/poketreta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bri4n-d3V/poketreta/issues"
+  },
+  "homepage": "https://github.com/Bri4n-d3V/poketreta#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

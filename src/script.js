@@ -27,13 +27,13 @@ async function fetchPkmn(id) {
 }
 // fetchPkmn(randomNumber);
 
-async function enemyPkmn(callback) {
+async function enemyPkmn(callback, param) {
   const enemyName = document.querySelector('#enemy-name');
   const enemySpriteFront = document.querySelector('#enemy-sprite-front');
   const enemyType1 = document.querySelector('#enemy-type1');
   const enemyType2 = document.querySelector('#enemy-type2');
 
-  const pkmn = await callback(randomNumber);
+  const pkmn = await callback(param);
 
   enemyName.innerHTML = pkmn.name;
   enemySpriteFront.src = pkmn.spriteFront;
@@ -44,6 +44,6 @@ async function enemyPkmn(callback) {
 }
 
 window.onload = async () => {
-  await enemyPkmn(fetchPkmn)
+  await enemyPkmn(fetchPkmn, randomNumber)
 };
 

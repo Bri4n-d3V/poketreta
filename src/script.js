@@ -19,3 +19,10 @@ async function fetchPkmn(id) {
   }
 }
 fetchPkmn(randomNumber);
+
+function enemyPkmn() {
+  const enemyName = document.querySelector('#enemy-name');
+  const enemySpriteFront = document.querySelector('#enemy-sprite-front');
+  const enemyType1 = document.querySelector('#enemy-type1');
+  const enemyType2 = document.querySelector('#enemy-type2');
+}

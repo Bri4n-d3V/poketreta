@@ -99,3 +99,11 @@ window.onload = async () => {
   await friendPkmn2(fetchPkmn,friendNumber2);
   await friendPkmn3(fetchPkmn,friendNumber3);
 };
+
+module.exports = {
+  fetchPkmn,
+  enemyPkmn,
+  friendPkmn1,
+  friendPkmn2,
+  friendPkmn3,
+}

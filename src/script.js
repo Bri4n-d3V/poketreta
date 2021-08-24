@@ -101,7 +101,7 @@ async function friendPkmn3(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   }
 }
-function telaPok(param) {
+function telaPkmn(param) {
   const srct = armazenamento[`${param + 1}`].spriteBack;
   const friendPkmnSpriteBrack = document.querySelector('#imagem');
   friendPkmnSpriteBrack.src = srct;
@@ -112,7 +112,7 @@ function telaPok(param) {
 const pickPokemon = () => document
   .querySelectorAll('.option')
   .forEach((elemento, index) => elemento.addEventListener('click', (event) =>
-  telaPok(index)));
+  telaPkmn(index)));
 
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);

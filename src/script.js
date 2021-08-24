@@ -136,6 +136,14 @@ const pickPkmn = _ => document
   }));
 
 
+  module.exports = {
+    fetchPkmn,
+    enemyPkmn,
+    friendPkmn1,
+    friendPkmn2,
+    friendPkmn3,
+} 
+
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, enemyNumber);

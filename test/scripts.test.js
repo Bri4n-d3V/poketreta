@@ -62,5 +62,6 @@ test('verifica dados retornaados', async () => {
         expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
         expect(Pkmn.sprites.back_default).toEqual("http://pokeapi.co/media/sprites/pokemon/back/413.png")
         expect(Pkmn.types[0].type.name).toEqual("grass");
+        expect(Pkmn.types[1].type.name).toEqual("poison");
     })
 })

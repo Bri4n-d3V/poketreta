@@ -39,11 +39,8 @@ function tes(a) {
 
 function pcDado(obj, objs, index) {
   obj
-
   obj[index] = objs;
-
   return obj;
-
 };
 
 async function enemyPkmn(callback, param) {
@@ -53,7 +50,7 @@ async function enemyPkmn(callback, param) {
   const enemyType2 = document.querySelector('#enemy-type2');
 
   const pkmn = await callback(param);
-  console.log(pkmn)
+  pcDado(armazenamento , pkmn, 0)
   enemyName.innerHTML = pkmn.name;
   enemySpriteFront.src = pkmn.spriteFront;
   enemyType1.innerHTML = pkmn.type1;
@@ -69,7 +66,7 @@ async function friendPkmn1(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-1');
 
   const pkmn = await callback(param);
-
+  pcDado(armazenamento , pkmn, 1)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -85,7 +82,7 @@ async function friendPkmn2(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-2');
 
   const pkmn = await callback(param);
-
+  pcDado(armazenamento , pkmn, 2)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -101,7 +98,7 @@ async function friendPkmn3(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-3');
 
   const pkmn = await callback(param);
-
+  pcDado(armazenamento , pkmn, 3)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -109,12 +106,18 @@ async function friendPkmn3(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   }
 }
+function telaPok(param) {
+  const srct = armazenamento[`${param + 1}`].spriteBack;
+  const friendPkmnSpriteBrack = document.querySelector('#imagem');
+  friendPkmnSpriteBrack.src = srct;
+  
+}
 
 /* Tente pegar o pokemon do intenario e coloque na div '.ally-container' */
 const pickPokemon = () => document
   .querySelectorAll('.option')
   .forEach((elemento, index) => elemento.addEventListener('click', (event) =>
-    console.log(index)));
+  telaPok(index)));
 
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);

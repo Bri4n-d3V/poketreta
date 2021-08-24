@@ -118,6 +118,8 @@ function telaPkmn(param) {
   const friendType1 = document.querySelector('#friend-type1');
   const friendType2 = document.querySelector('#friend-type2');
 
+  armazenamento[4] = (param + 1);
+
   friendName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendSprite.src = pkmn.spriteBack;
   friendType1.innerHTML = pkmn.type1;
@@ -132,8 +134,21 @@ const pickPkmn = _ => document
   .querySelectorAll('.option')
   .forEach((elemento, index) => elemento.addEventListener('click', _ => {
     document.querySelector('#confirm-btn').disabled = false;
-    telaPkmn(index)
+    telaPkmn(index);
   }));
+
+  // executa o jogo ao clicar no botão 'confirm'.
+  function confirmBtn() {
+    document.querySelector('#confirm-btn').addEventListener('click', () => battle())
+  }
+
+  // calculo da batalha pkmn de acordo com os tipos.
+function battle() {
+  console.log(armazenamento[armazenamento[4]].type1);
+  if (armazenamento[0].type1 === armazenamento[armazenamento[4]].type1) {
+    window.alert('empate');
+  }
+}
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
@@ -142,6 +157,7 @@ window.onload = async _ => {
   await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
+  await confirmBtn();
 };
 
 module.exports = {

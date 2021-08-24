@@ -111,14 +111,14 @@ async function friendPkmn3(callback, param) {
 };
 
 // Imprime no campo de batalha o pkmn selecionado com o evento de clique da função pickPkmn.
-function telaPkmn(param) {
-  const pkmn = armazenamento[`${param + 1}`];
+function telaPkmn(index) {
+  const pkmn = armazenamento[`${index + 1}`];
   const friendName = document.querySelector('#friend-name');
   const friendSprite = document.querySelector('#friend-sprite');
   const friendType1 = document.querySelector('#friend-type1');
   const friendType2 = document.querySelector('#friend-type2');
 
-  armazenamento[4] = (param + 1);
+  armazenamento[4] = (index + 1);
 
   friendName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendSprite.src = pkmn.spriteBack;
@@ -132,29 +132,30 @@ function telaPkmn(param) {
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
 const pickPkmn = _ => document
   .querySelectorAll('.option')
-  .forEach((elemento, index) => elemento.addEventListener('click', _ => {
-    document.querySelector('#confirm-btn').disabled = false;
+  .forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
+    document.querySelector('#battle-btn').disabled = false;
     telaPkmn(index);
   }));
 
-// executa o jogo ao clicar no botão 'confirm'.
-function confirmBtn() {
-  document.querySelector('#confirm-btn').addEventListener('click', () => battle())
+// executa o jogo ao clicar no botão 'battle'.
+function battleBtn() {
+  document.querySelector('#battle-btn').addEventListener('click', () => battleCalculator())
 }
 
 // calculo da batalha pkmn de acordo com os tipos.
-function battle() {
-
+function battleCalculator() {
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
-  const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel']
-  fireSuperEffectiveAgainst.forEach(type => {
-    if ((armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') && (armazenamento[0].type1 === type || armazenamento[0].type2 === type)) {
-      window.alert(`It's super effective!`);
-    } else {
-      window.alert(`It's not very effective...`);
-    };
-  });
-
+  if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+    const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel'];
+    
+    let result = `It's not very effective...`;
+    fireSuperEffectiveAgainst.forEach(type => {
+      if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
+        result = `It's super effective!`;
+      }
+    });
+    window.alert(result);
+  }
 };
 
 // Chamada das funções ao carregar a página.
@@ -164,7 +165,7 @@ window.onload = async _ => {
   await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
-  await confirmBtn();
+  await battleBtn();
 };
 
 // exporta funcoes para o arquivo de testes com jest
@@ -175,5 +176,5 @@ module.exports = {
   friendPkmn2,
   friendPkmn3,
   pickPkmn,
-  confirmBtn,
+  battleBtn,
 };

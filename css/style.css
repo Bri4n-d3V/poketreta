@@ -152,3 +152,72 @@ main {
   justify-content: space-evenly;
   text-align: center;
 }
+
+/* Responsivo */
+@media screen and (max-width: 1131px) {
+  .area-enemy {
+    right: -66%;
+  }
+  .area-ally {
+    left: -28%;
+  }
+  .versus {
+    margin: 17.55% 43%;
+  }
+
+  .enemy-container {
+    right: 61%;
+    top: 43%;
+  }
+  .enemy-container:hover {
+    right: 41%;
+    top: 22%;
+  }
+  .ally-container {
+    top: 35%;
+  }
+}
+
+@media screen and (max-width: 908px) {
+  .area-enemy {
+    width: 180%;
+    right: -96%;
+    transform: skew(62deg);
+    -o-transform: skew(62deg);
+    -moz-transform: skew(62deg);
+    -webkit-transform: skew(62deg);
+  }
+  .enemy-container {
+    transform: skew(-62deg);
+    -o-transform: skew(-62deg);
+    -moz-transform: skew(-62deg);
+    -webkit-transform: skew(-62deg);
+  }
+  .area-ally {
+    transform: skew(62deg);
+    -o-transform: skew(62deg);
+    -moz-transform: skew(62deg);
+    -webkit-transform: skew(62deg);
+  }
+  .ally-container {
+    right: 50%;
+    top: 43%;
+    transform: skew(-62deg);
+    -o-transform: skew(-62deg);
+    -moz-transform: skew(-62deg);
+    -webkit-transform: skew(-62deg);
+  }
+  .versus {
+    margin: 17.55% 43%;
+  }
+  .enemy-container:hover {
+    right: 51%;
+    top: 28%;
+  }
+  .ally-container {
+    top: 35%;
+  }
+  .versus {
+    margin: 28.55% 42%;
+  }
+}

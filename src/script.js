@@ -137,18 +137,31 @@ const pickPkmn = _ => document
     telaPkmn(index);
   }));
 
-  // executa o jogo ao clicar no botão 'confirm'.
-  function confirmBtn() {
-    document.querySelector('#confirm-btn').addEventListener('click', () => battle())
-  }
-
-  // calculo da batalha pkmn de acordo com os tipos.
-function battle() {
-  console.log(armazenamento[armazenamento[4]].type1);
-  if (armazenamento[0].type1 === armazenamento[armazenamento[4]].type1) {
-    window.alert('empate');
-  }
+// executa o jogo ao clicar no botão 'confirm'.
+function confirmBtn() {
+  document.querySelector('#confirm-btn').addEventListener('click', () => battle())
 }
+
+// calculo da batalha pkmn de acordo com os tipos.
+function battle() {
+  // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
+  switch (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+    case armazenamento[0].type1 === 'bug' || armazenamento[0].type2 === 'bug':
+      window.alert(`It's super effective!`)
+      break;
+    case armazenamento[0].type1 === 'grass' || armazenamento[0].type2 === 'grass':
+      window.alert(`It's super effective!`)
+      break;
+    case armazenamento[0].type1 === 'ice' || armazenamento[0].type2 === 'ice':
+      window.alert(`It's super effective!`)
+      break;
+    case armazenamento[0].type1 === 'steel' || armazenamento[0].type2 === 'steel':
+      window.alert(`It's super effective!`)
+      break;
+    default:
+      window.alert(`It's not very effective...`);
+  };
+};
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
@@ -160,6 +173,7 @@ window.onload = async _ => {
   await confirmBtn();
 };
 
+// exporta funcoes para o arquivo de testes com jest
 module.exports = {
   fetchPkmn,
   enemyPkmn,

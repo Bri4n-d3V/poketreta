@@ -5,6 +5,8 @@ const friendNumber1 = Math.floor(Math.random() * 152);
 const friendNumber2 = Math.floor(Math.random() * 152);
 const friendNumber3 = Math.floor(Math.random() * 152);
 
+let armazenamento = []
+
 async function fetchPkmn(id) {
   try {
     const endpoint = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -29,6 +31,21 @@ async function fetchPkmn(id) {
   }
 }
 
+function tes(a) {
+  let casa;
+  casa = 1;
+  return casa
+}
+
+function pcDado(obj, objs, index) {
+  obj
+
+  obj[index] = objs;
+
+  return obj;
+
+};
+
 async function enemyPkmn(callback, param) {
   const enemyName = document.querySelector('#enemy-name');
   const enemySpriteFront = document.querySelector('#enemy-sprite-front');
@@ -36,7 +53,7 @@ async function enemyPkmn(callback, param) {
   const enemyType2 = document.querySelector('#enemy-type2');
 
   const pkmn = await callback(param);
-
+  console.log(pkmn)
   enemyName.innerHTML = pkmn.name;
   enemySpriteFront.src = pkmn.spriteFront;
   enemyType1.innerHTML = pkmn.type1;
@@ -94,8 +111,10 @@ async function friendPkmn3(callback, param) {
 }
 
 /* Tente pegar o pokemon do intenario e coloque na div '.ally-container' */
-const pickPokemon = () => document.querySelector('.inventario').childNodes.forEach((elemento) => elemento.addEventListener('click', (event) =>
-  console.log(event.target)));
+const pickPokemon = () => document
+  .querySelectorAll('.option')
+  .forEach((elemento, index) => elemento.addEventListener('click', (event) =>
+    console.log(index)));
 
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);
@@ -104,11 +123,3 @@ window.onload = async () => {
   await friendPkmn3(fetchPkmn,friendNumber3);
   await pickPokemon();
 };
-
-module.exports = {
-  fetchPkmn,
-  enemyPkmn,
-  friendPkmn1,
-  friendPkmn2,
-  friendPkmn3,
-}

@@ -39,3 +39,9 @@ fetchPkmn.mockImplementation(async () => ({
     }
   }
   ))
+
+  test('verifica dados retornaados', async () => {
+    fetchPkmn(413).then((Pkmn) => {
+        expect(Pkmn.name).toEqual('wormadam-plant')
+    })
+  })

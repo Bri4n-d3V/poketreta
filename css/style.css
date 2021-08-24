@@ -19,6 +19,11 @@ header {
   z-index: 20;
 }
 
+header img {
+  width: 48px;
+  padding-left: 20px;
+}
+
 /* Main */
 /* Arena */
 main {

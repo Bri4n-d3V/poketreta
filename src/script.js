@@ -27,7 +27,7 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    await console.log(error);
+    await console.log(error);  //tratar o erro 
   }
 }
 

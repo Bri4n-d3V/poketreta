@@ -122,7 +122,7 @@ main {
   border-radius: 1%;
 }
 
-.inventario > .opiton {
+.inventario > .option {
   border: solid 6px rgb(12, 90, 7);
   background-color: rgb(8, 54, 4);
   border-radius: 1.75%;
@@ -132,12 +132,12 @@ main {
   cursor: pointer;
 }
 
-.inventario > .opiton:hover {
+.inventario > .option:hover {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }
 
-.inventario > .opiton > div {
+.inventario > .option > div {
   justify-content: space-evenly;
   text-align: center;
 }

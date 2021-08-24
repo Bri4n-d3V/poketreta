@@ -93,11 +93,16 @@ async function friendPkmn3(callback, param) {
   }
 }
 
+/* Tente pegar o pokemon do intenario e coloque na div '.ally-container' */
+const pickPokemon = () => document.querySelector('.inventario').childNodes.forEach((elemento) => elemento.addEventListener('click', (event) =>
+  console.log(event.target)));
+
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);
   await friendPkmn1(fetchPkmn,friendNumber1);
   await friendPkmn2(fetchPkmn,friendNumber2);
   await friendPkmn3(fetchPkmn,friendNumber3);
+  await pickPokemon();
 };
 
 module.exports = {

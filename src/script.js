@@ -1,12 +1,15 @@
 // const fetch = require('node-fetch');
 
+// Gerador de números aleatórios que são usados como os IDs dos Pkmn.
 const enemyNumber = Math.floor(Math.random() * 152);
 const friendNumber1 = Math.floor(Math.random() * 152);
 const friendNumber2 = Math.floor(Math.random() * 152);
 const friendNumber3 = Math.floor(Math.random() * 152);
 
+// Adicionar comentário.
 let armazenamento = []
 
+// chamada ao API do Pkmn que pega as informações desejadas (nome, spites (frente e costas), nome e tipos (1 e 2)).
 async function fetchPkmn(id) {
   try {
     const endpoint = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -31,13 +34,15 @@ async function fetchPkmn(id) {
   }
 }
 
-
+// Adicionar comentário.
 function pcDado(obj, objs, index) {
   obj
   obj[index] = objs;
   return obj;
 };
 
+
+// Gera via DOM o Pkmn inimigo aleatório com as informações desejadas.
 async function enemyPkmn(callback, param) {
   const enemyName = document.querySelector('#enemy-name');
   const enemySpriteFront = document.querySelector('#enemy-sprite-front');
@@ -54,6 +59,7 @@ async function enemyPkmn(callback, param) {
   }
 }
 
+// Gera via DOM o Pkmn amigo 1 aleatório com as informações desejadas.
 async function friendPkmn1(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-1');
   const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-1');
@@ -70,6 +76,7 @@ async function friendPkmn1(callback, param) {
   }
 }
 
+// Gera via DOM o Pkmn amigo 2 aleatório com as informações desejadas.
 async function friendPkmn2(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-2');
   const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-2');
@@ -86,6 +93,7 @@ async function friendPkmn2(callback, param) {
   }
 }
 
+// Gera via DOM o Pkmn amigo 3 aleatório com as informações desejadas.
 async function friendPkmn3(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-3');
   const friendPkmnSpriteFront = document.querySelector('#friend-sprite-front-3');
@@ -101,6 +109,8 @@ async function friendPkmn3(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   }
 }
+
+// Adicionar comentário.
 function telaPkmn(param) {
   const srct = armazenamento[`${param + 1}`].spriteBack;
   const friendPkmnSpriteBrack = document.querySelector('#imagem');
@@ -114,6 +124,8 @@ const pickPokemon = () => document
   .forEach((elemento, index) => elemento.addEventListener('click', (event) =>
   telaPkmn(index)));
 
+
+// Chamada das funções ao carregar a página.
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);
   await friendPkmn1(fetchPkmn,friendNumber1);

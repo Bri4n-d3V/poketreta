@@ -42,6 +42,7 @@ fetchPkmn.mockImplementation(async () => ({
 
   test('verifica dados retornaados', async () => {
     fetchPkmn(413).then((Pkmn) => {
-        expect(Pkmn.name).toEqual('wormadam-plant')
+        expect(Pkmn.name).toEqual('wormadam-plant');
+        expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
     })
   })

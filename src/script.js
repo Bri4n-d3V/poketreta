@@ -31,11 +31,6 @@ async function fetchPkmn(id) {
   }
 }
 
-function tes(a) {
-  let casa;
-  casa = 1;
-  return casa
-}
 
 function pcDado(obj, objs, index) {
   obj

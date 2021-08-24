@@ -110,7 +110,7 @@ async function friendPkmn3(callback, param) {
   }
 }
 
-// Adicionar comentário.
+// Imprime no campo de batalha o pkmn selecionado com o evento de clique da função pickPkmn.
 function telaPkmn(param) {
   const srct = armazenamento[`${param + 1}`].spriteBack;
   const friendPkmnSpriteBrack = document.querySelector('#imagem');
@@ -118,10 +118,10 @@ function telaPkmn(param) {
   
 }
 
-/* Tente pegar o pokemon do intenario e coloque na div '.ally-container' */
-const pickPokemon = () => document
+// Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
+const pickPkmn = () => document
   .querySelectorAll('.option')
-  .forEach((elemento, index) => elemento.addEventListener('click', (event) =>
+  .forEach((elemento, index) => elemento.addEventListener('click', _ =>
   telaPkmn(index)));
 
 
@@ -131,5 +131,5 @@ window.onload = async () => {
   await friendPkmn1(fetchPkmn,friendNumber1);
   await friendPkmn2(fetchPkmn,friendNumber2);
   await friendPkmn3(fetchPkmn,friendNumber3);
-  await pickPokemon();
+  await pickPkmn();
 };

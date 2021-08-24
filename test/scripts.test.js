@@ -14,7 +14,7 @@ jest.mock("../src/script");
 
 fetchPkmn.mockImplementation(async () => ({
 
-    
+
     "id": 413,
     "name": "wormadam-plant",
     "order": 503,
@@ -36,14 +36,30 @@ fetchPkmn.mockImplementation(async () => ({
     "version_group": {
         "name": "diamond-pearl",
         "url": "https://pokeapi.co/api/v2/version-group/8/"
-    }
-  }
-  ))
+    },
+    "types": [
+        {
+            "slot": 1,
+            "type": {
+                "name": "grass",
+                "url": "https://pokeapi.co/api/v2/type/12/"
+            }
+        },
+        {
+            "slot": 2,
+            "type": {
+                "name": "poison",
+                "url": "https://pokeapi.co/api/v2/type/4/"
+            }
+        }
+    ]
+}
+))
 
-  test('verifica dados retornaados', async () => {
+test('verifica dados retornaados', async () => {
     fetchPkmn(413).then((Pkmn) => {
         expect(Pkmn.name).toEqual('wormadam-plant');
         expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
         expect(Pkmn.sprites.back_default).toEqual("http://pokeapi.co/media/sprites/pokemon/back/413.png")
     })
-  })
+})

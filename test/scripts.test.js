@@ -10,6 +10,4 @@ const {
     friendPkmn3,
 } = require("../src/script");
 
-test('teste', () => {
-    expect('oi').toBe('oi');
-})
+jest.mock("../src/script");

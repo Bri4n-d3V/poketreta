@@ -30,9 +30,9 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    return await fetchPkmn(id);  //tratar o erro 
-  }
-}
+    return await fetchPkmn(id); //tratar o erro 
+  };
+};
 
 // Adicionar comentário.
 function pcDado(obj, objs, index) {
@@ -51,13 +51,13 @@ async function enemyPkmn(callback, param) {
 
   const pkmn = await callback(param);
   pcDado(armazenamento, pkmn, 0)
-  enemyName.innerHTML = pkmn.name;
+  enemyName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   enemySpriteFront.src = pkmn.spriteFront;
   enemyType1.innerHTML = pkmn.type1;
   if (pkmn.type1 !== pkmn.type2) {
     enemyType2.innerHTML = pkmn.type2
-  }
-}
+  };
+};
 
 // Gera via DOM o Pkmn amigo 1 aleatório com as informações desejadas.
 async function friendPkmn1(callback, param) {
@@ -68,13 +68,13 @@ async function friendPkmn1(callback, param) {
 
   const pkmn = await callback(param);
   pcDado(armazenamento, pkmn, 1)
-  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
-  }
-}
+  };
+};
 
 // Gera via DOM o Pkmn amigo 2 aleatório com as informações desejadas.
 async function friendPkmn2(callback, param) {
@@ -85,13 +85,13 @@ async function friendPkmn2(callback, param) {
 
   const pkmn = await callback(param);
   pcDado(armazenamento, pkmn, 2)
-  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
-  }
-}
+  };
+};
 
 // Gera via DOM o Pkmn amigo 3 aleatório com as informações desejadas.
 async function friendPkmn3(callback, param) {
@@ -102,13 +102,13 @@ async function friendPkmn3(callback, param) {
 
   const pkmn = await callback(param);
   pcDado(armazenamento, pkmn, 3)
-  friendPkmnName.innerHTML = pkmn.name;
+  friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
-  }
-}
+  };
+};
 
 // Imprime no campo de batalha o pkmn selecionado com o evento de clique da função pickPkmn.
 function telaPkmn(param) {
@@ -124,16 +124,16 @@ function telaPkmn(param) {
   friendType2.innerHTML = '';
   if (pkmn.type1 !== pkmn.type2) {
     friendType2.innerHTML = pkmn.type2;
-  }
-
-
-}
+  };
+};
 
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
 const pickPkmn = () => document
   .querySelectorAll('.option')
-  .forEach((elemento, index) => elemento.addEventListener('click', _ =>
-    telaPkmn(index)));
+  .forEach((elemento, index) => elemento.addEventListener('click', _ => {
+    document.querySelector('#confirm-btn').disabled = false;
+    telaPkmn(index)
+  }));
 
 
 // Chamada das funções ao carregar a página.

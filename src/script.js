@@ -30,7 +30,7 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    await console.log(error); //tratar o erro 
+    return await fetchPkmn(id);  //tratar o erro 
   }
 }
 

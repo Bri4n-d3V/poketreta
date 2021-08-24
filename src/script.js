@@ -144,29 +144,23 @@ function confirmBtn() {
 
 // calculo da batalha pkmn de acordo com os tipos.
 function battle() {
+
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
-  switch (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
-    case armazenamento[0].type1 === 'bug' || armazenamento[0].type2 === 'bug':
-      window.alert(`It's super effective!`)
-      break;
-    case armazenamento[0].type1 === 'grass' || armazenamento[0].type2 === 'grass':
-      window.alert(`It's super effective!`)
-      break;
-    case armazenamento[0].type1 === 'ice' || armazenamento[0].type2 === 'ice':
-      window.alert(`It's super effective!`)
-      break;
-    case armazenamento[0].type1 === 'steel' || armazenamento[0].type2 === 'steel':
-      window.alert(`It's super effective!`)
-      break;
-    default:
+  const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel']
+  fireSuperEffectiveAgainst.forEach(type => {
+    if ((armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') && (armazenamento[0].type1 === type || armazenamento[0].type2 === type)) {
+      window.alert(`It's super effective!`);
+    } else {
       window.alert(`It's not very effective...`);
-  };
+    };
+  });
+
 };
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, enemyNumber);
-  await friendPkmn1(fetchPkmn, friendNumber1);
+  await friendPkmn1(fetchPkmn, 4);
   await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
@@ -180,4 +174,6 @@ module.exports = {
   friendPkmn1,
   friendPkmn2,
   friendPkmn3,
+  pickPkmn,
+  confirmBtn,
 };

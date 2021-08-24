@@ -33,7 +33,7 @@ main {
 }
 
 .area-enemy {
-  background-color: rgb(82, 18, 18);
+  background-color: rgb(182, 80, 80);
   width: 150%;
   height: 150%;
   position: absolute;
@@ -87,7 +87,7 @@ main {
 }
 
 .area-ally {
-  background-color: rgb(11, 41, 78);
+  background-color: rgb(62, 80, 112);
   width: 150%;
   height: 150%;
   position: absolute;
@@ -102,17 +102,26 @@ main {
 
 .ally-container {
   position: absolute;
-  right: 42%;
-  top: 40%;
+  right: 34%;
+  top: 31%;
   z-index: 50;
   transform: skew(-74deg);
   -o-transform: skew(-74deg);
   -moz-transform: skew(-74deg);
   -webkit-transform: skew(-74deg);
+  justify-content: space-evenly;
+  text-align: center;
+  border: 1px outset rgb(0, 60, 255);
+  background-color: rgb(40, 57, 105);
+  border-radius: 50%;
+  padding: 12px 40px;
+  min-height: 190px;
+  min-width: 190px;
+  cursor: pointer;
 }
 
 .versus {
-  background-color: rgb(161, 86, 58);
+  background-color: rgb(206, 98, 59);
   width: 120px;
   height: 120px;
   margin: 15.55% 42%;
@@ -126,7 +135,7 @@ main {
 
 /* Inventário */
 .inventario {
-  background-color: rgb(11, 46, 11);
+  background-color: rgb(141, 91, 57);
   display: flex;
   align-items: center;
   width: 100%;
@@ -134,14 +143,13 @@ main {
   bottom: -2px;
   padding: 6px 0;
   justify-content: space-evenly;
-  border: solid 6px rgb(8, 54, 4);
-  border-radius: 1%;
+  border: solid 6px rgb(102, 53, 40);
 }
 
 .inventario > .option {
-  border: solid 6px rgb(12, 90, 7);
-  background-color: rgb(8, 54, 4);
-  border-radius: 1.75%;
+  border: solid 6px rgb(102, 53, 40);
+  background-color: rgb(97, 65, 47);
+  border-radius: 5.75%;
   padding: 12px 40px;
   min-height: 190px;
   height: 100%;
@@ -159,13 +167,19 @@ main {
 }
 
 /* button */
-#confirm-btn{
-  /* background-color: black; */
-  color: black;
-  width: 100px;
-  height: 100px;
+#confirm-btn {
+  background-color: rgb(102, 53, 40);
+  border-radius: 53%;
+  border: none;
+  color: rgb(204, 204, 204);
+  font-weight: 800;
+  width: 80px;
+  height: 45px;
   position: absolute;
-  margin: 500px;
+  margin: 0px;
+  top: 65%;
+  right: 42.5%;
+  cursor: pointer;
 }
 
 /* Responsivo */
@@ -189,7 +203,8 @@ main {
     top: 22%;
   }
   .ally-container {
-    top: 35%;
+    right: 42%;
+    top: 28%;
   }
 }
 
@@ -230,17 +245,9 @@ main {
     top: 28%;
   }
   .ally-container {
-    top: 35%;
+    top: 32%;
   }
   .versus {
     margin: 28.55% 42%;
   }
-}
-
-.sonOn::affer {
-  content: url("/img/sonIcon.png")
-}
-
-.sonOff::affer {
-  content: url("/img/sonIconOff.png")
 }

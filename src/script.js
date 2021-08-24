@@ -1,10 +1,10 @@
 // const fetch = require('node-fetch');
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
-const enemyNumber = Math.floor(Math.random() * 152);
-const friendNumber1 = Math.floor(Math.random() * 152);
-const friendNumber2 = Math.floor(Math.random() * 152);
-const friendNumber3 = Math.floor(Math.random() * 152);
+const enemyNumber = Math.floor(Math.random() * 152) + 1;
+const friendNumber1 = Math.floor(Math.random() * 152) + 1;
+const friendNumber2 = Math.floor(Math.random() * 152) + 1;
+const friendNumber3 = Math.floor(Math.random() * 152) + 1;
 
 // Adicionar comentário.
 let armazenamento = []
@@ -30,7 +30,7 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    await console.log(error);  //tratar o erro 
+    await console.log(error); //tratar o erro 
   }
 }
 
@@ -50,7 +50,7 @@ async function enemyPkmn(callback, param) {
   const enemyType2 = document.querySelector('#enemy-type2');
 
   const pkmn = await callback(param);
-  pcDado(armazenamento , pkmn, 0)
+  pcDado(armazenamento, pkmn, 0)
   enemyName.innerHTML = pkmn.name;
   enemySpriteFront.src = pkmn.spriteFront;
   enemyType1.innerHTML = pkmn.type1;
@@ -67,7 +67,7 @@ async function friendPkmn1(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-1');
 
   const pkmn = await callback(param);
-  pcDado(armazenamento , pkmn, 1)
+  pcDado(armazenamento, pkmn, 1)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -84,7 +84,7 @@ async function friendPkmn2(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-2');
 
   const pkmn = await callback(param);
-  pcDado(armazenamento , pkmn, 2)
+  pcDado(armazenamento, pkmn, 2)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -101,7 +101,7 @@ async function friendPkmn3(callback, param) {
   const friendPkmnType2 = document.querySelector('#friend-type2-3');
 
   const pkmn = await callback(param);
-  pcDado(armazenamento , pkmn, 3)
+  pcDado(armazenamento, pkmn, 3)
   friendPkmnName.innerHTML = pkmn.name;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
@@ -112,24 +112,35 @@ async function friendPkmn3(callback, param) {
 
 // Imprime no campo de batalha o pkmn selecionado com o evento de clique da função pickPkmn.
 function telaPkmn(param) {
-  const srct = armazenamento[`${param + 1}`].spriteBack;
-  const friendPkmnSpriteBrack = document.querySelector('#imagem');
-  friendPkmnSpriteBrack.src = srct;
-  
+  const pkmn = armazenamento[`${param + 1}`];
+  const friendName = document.querySelector('#friend-name');
+  const friendSprite = document.querySelector('#friend-sprite');
+  const friendType1 = document.querySelector('#friend-type1');
+  const friendType2 = document.querySelector('#friend-type2');
+
+  friendName.innerHTML = `<strong> ${pkmn.name} </strong>`;
+  friendSprite.src = pkmn.spriteBack;
+  friendType1.innerHTML = pkmn.type1;
+  friendType2.innerHTML = '';
+  if (pkmn.type1 !== pkmn.type2) {
+    friendType2.innerHTML = pkmn.type2;
+  }
+
+
 }
 
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
 const pickPkmn = () => document
   .querySelectorAll('.option')
   .forEach((elemento, index) => elemento.addEventListener('click', _ =>
-  telaPkmn(index)));
+    telaPkmn(index)));
 
 
 // Chamada das funções ao carregar a página.
 window.onload = async () => {
   await enemyPkmn(fetchPkmn, enemyNumber);
-  await friendPkmn1(fetchPkmn,friendNumber1);
-  await friendPkmn2(fetchPkmn,friendNumber2);
-  await friendPkmn3(fetchPkmn,friendNumber3);
+  await friendPkmn1(fetchPkmn, friendNumber1);
+  await friendPkmn2(fetchPkmn, friendNumber2);
+  await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
 };

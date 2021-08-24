@@ -1,10 +1,10 @@
 // const fetch = require('node-fetch');
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
-const enemyNumber = Math.floor(Math.random() * 152);
-const friendNumber1 = Math.floor(Math.random() * 152);
-const friendNumber2 = Math.floor(Math.random() * 152);
-const friendNumber3 = Math.floor(Math.random() * 152);
+const enemyNumber = Math.floor(Math.random() * 151)+1;
+const friendNumber1 = Math.floor(Math.random() * 151)+1;
+const friendNumber2 = Math.floor(Math.random() * 151)+1;
+const friendNumber3 = Math.floor(Math.random() * 151)+1;
 
 // Adicionar comentário.
 let armazenamento = []
@@ -30,7 +30,7 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    await console.log(error);  //tratar o erro 
+    return await fetchPkmn(id);  //tratar o erro 
   }
 }
 

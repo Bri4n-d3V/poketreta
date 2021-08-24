@@ -128,7 +128,7 @@ function telaPkmn(param) {
 };
 
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
-const pickPkmn = () => document
+const pickPkmn = _ => document
   .querySelectorAll('.option')
   .forEach((elemento, index) => elemento.addEventListener('click', _ => {
     document.querySelector('#confirm-btn').disabled = false;
@@ -137,7 +137,7 @@ const pickPkmn = () => document
 
 
 // Chamada das funções ao carregar a página.
-window.onload = async () => {
+window.onload = async _ => {
   await enemyPkmn(fetchPkmn, enemyNumber);
   await friendPkmn1(fetchPkmn, friendNumber1);
   await friendPkmn2(fetchPkmn, friendNumber2);

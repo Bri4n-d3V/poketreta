@@ -225,18 +225,25 @@ function battleBtn() {
 // calculo da batalha pkmn de acordo com os tipos.
 function battleCalculator() {
   // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
-const friendPkmn = armazenamento[armazenamento[4]]
-const type1 = friendPkmn.type1
-const type2 = friendPkmn.type2
+  const friendPkmn = armazenamento[armazenamento[4]]
+  const type1 = friendPkmn.type1
+  const type2 = friendPkmn.type2
 
-//typesTable[type1][0];
+  //typesTable[type1][0];
 
-  if ( typesTable[type1][0].some((type)=>(type == armazenamento[0].type1 || type == armazenamento[0].type2)) ) {
+  if (armazenamento[armazenamento[4]].type1 === 'normal' || armazenamento[armazenamento[4]].type2 === 'normal') {
 
-    let result = `It's very effective...`;
+    let result = `It's not very effective...`;
     window.alert(result);
     if (Math.floor(Math.random() * 2) === 0) points -= 10;
     else points += 10;
+  };
+
+  if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) {
+
+    let result = `It's very effective...`;
+    window.alert(result);
+    points += 10;
     enemyNumber = Math.floor(Math.random() * 152) + 1
   };
 

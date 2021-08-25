@@ -1,7 +1,7 @@
 // const fetch = require('node-fetch');
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
-const enemyNumber = Math.floor(Math.random() * 152) + 1;
+let enemyNumber = Math.floor(Math.random() * 152) + 1;
 const friendNumber1 = Math.floor(Math.random() * 152) + 1;
 const friendNumber2 = Math.floor(Math.random() * 152) + 1;
 const friendNumber3 = Math.floor(Math.random() * 152) + 1;
@@ -55,6 +55,7 @@ async function enemyPkmn(callback, param) {
   enemyName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   enemySpriteFront.src = pkmn.spriteFront;
   enemyType1.innerHTML = pkmn.type1;
+  enemyType2.innerHTML = '';
   if (pkmn.type1 !== pkmn.type2) {
     enemyType2.innerHTML = pkmn.type2
   };
@@ -150,15 +151,17 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if(Math.floor(Math.random() * 2) === 0 ) points -= 10;
+    if (Math.floor(Math.random() * 2) === 0) points -= 10;
     else points += 10;
   };
 
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
   if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+
     const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel'];
 
     let result = `It's not very effective...`;
+
     fireSuperEffectiveAgainst.forEach(type => {
       if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
         result = `It's super effective!`;
@@ -167,7 +170,21 @@ function battleCalculator() {
     });
     window.alert(result);
   }
+
+  // friend pkmn = FIRE, casos de VULNERABLE.
+  if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+    const fireVulnerable = ['Ground', 'Rock', 'Water'];
+
+    fireVulnerable.forEach(type => {
+      if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
+        points -= 10;
+      }
+    });
+    window.alert(`You're vulnerable against that pokémon!`);
+  }
+
   scoreBoard(points);
+  enemyPkmn(fetchPkmn, enemyNumber)
 };
 
 function scoreBoard(points) {

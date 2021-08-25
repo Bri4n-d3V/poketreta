@@ -226,7 +226,7 @@ function battleBtn() {
 function battleCalculator() {
   // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
   const friendPkmn = armazenamento[armazenamento[4]]
-  const enemyPkmn = armazenamento[0];
+  const enemyPkmn1 = armazenamento[0];
   const type1 = friendPkmn.type1
   const type2 = friendPkmn.type2
 
@@ -240,17 +240,21 @@ function battleCalculator() {
     else {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
+      scoreBoard(points);
+      enemyPkmn(fetchPkmn, enemyNumber);
+      return;
     }
 
   };
-
-
-  if (typesTable[type1][0].some((type) => (type == enemyPkmn.type1 || type == enemyPkmn.type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's super effective!`;
     window.alert(result);
     points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
   };
   if (armazenamento[armazenamento[4]].type2 === 'normal') {
 
@@ -261,20 +265,25 @@ function battleCalculator() {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
     }
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
 
   };
-  if (typesTable[type2][0].some((type) => (type == enemyPkmn.type1 || type == enemyPkmn.type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's very effective...`;
     window.alert(result);
     points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
   };
 
 
 
-  scoreBoard(points);
-  enemyPkmn(fetchPkmn, enemyNumber)
+
 };
 
 function scoreBoard(points) {

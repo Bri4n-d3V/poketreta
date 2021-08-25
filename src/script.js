@@ -236,7 +236,11 @@ function battleCalculator() {
     let result = `It's not very effective...`;
     window.alert(result);
     if (Math.floor(Math.random() * 2) === 0) points -= 10;
-    else points += 10;
+    else {
+      points += 10;
+      enemyNumber = Math.floor(Math.random() * 152) + 1;
+    }
+
   };
 
   if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  

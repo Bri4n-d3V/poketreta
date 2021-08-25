@@ -66,9 +66,9 @@ main {
   cursor: pointer;
 }
 
-.enemy-container:hover {
+/* .enemy-container:hover {
   justify-content: space-evenly;
-  /* color: rgb(82, 18, 18); */
+  color: rgb(82, 18, 18);
   position: absolute;
   border: none;
   background-color: rgb(82, 18, 18);
@@ -85,7 +85,7 @@ main {
   left: -100px;
   width: 110%;
   height: 110%;
-}
+} */
 
 .area-friend {
   background-color: rgb(62, 80, 112);
@@ -199,10 +199,10 @@ main {
     right: 61%;
     top: 43%;
   }
-  .enemy-container:hover {
+/*   .enemy-container:hover {
     right: 41%;
     top: 22%;
-  }
+  } */
   .friend-container {
     right: 42%;
     top: 28%;
@@ -241,10 +241,10 @@ main {
   .versus {
     margin: 17.55% 43%;
   }
-  .enemy-container:hover {
+/*   .enemy-container:hover {
     right: 51%;
     top: 28%;
-  }
+  } */
   .friend-container {
     top: 32%;
   }

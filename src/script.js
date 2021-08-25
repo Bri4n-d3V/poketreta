@@ -144,10 +144,17 @@ function battleBtn() {
 
 // calculo da batalha pkmn de acordo com os tipos.
 function battleCalculator() {
+  // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
+  if (armazenamento[armazenamento[4]].type1 === 'normal' || armazenamento[armazenamento[4]].type2 === 'normal') {
+
+    let result = `It's not very effective...`;
+    window.alert(result);
+  };
+
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
   if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
     const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel'];
-    
+
     let result = `It's not very effective...`;
     fireSuperEffectiveAgainst.forEach(type => {
       if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
@@ -161,7 +168,7 @@ function battleCalculator() {
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, enemyNumber);
-  await friendPkmn1(fetchPkmn, 4);
+  await friendPkmn1(fetchPkmn, friendNumber1);
   await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();

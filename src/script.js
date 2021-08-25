@@ -231,7 +231,7 @@ function battleCalculator() {
 
   //typesTable[type1][0];
 
-  if (armazenamento[armazenamento[4]].type1 === 'normal' || armazenamento[armazenamento[4]].type2 === 'normal') {
+  if (armazenamento[armazenamento[4]].type1 === 'normal') {
 
     let result = `It's not very effective...`;
     window.alert(result);
@@ -239,7 +239,7 @@ function battleCalculator() {
     else points += 10;
   };
 
-  if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) {
+  if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's very effective...`;
     window.alert(result);

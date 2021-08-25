@@ -232,6 +232,26 @@ function battleCalculator() {
 
   //typesTable[type1][0];
 
+  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `It's super effective!`;
+    window.alert(result);
+    points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  };
+  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `It's very effective...`;
+    window.alert(result);
+    points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  };
   if (friendPkmn.type1 === 'normal') {
 
     let result = `It's not very effective...`;
@@ -245,16 +265,6 @@ function battleCalculator() {
       return;
     }
 
-  };
-  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `It's super effective!`;
-    window.alert(result);
-    points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
-    scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
-    return;
   };
   if (armazenamento[armazenamento[4]].type2 === 'normal') {
 
@@ -270,17 +280,6 @@ function battleCalculator() {
     return;
 
   };
-  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `It's very effective...`;
-    window.alert(result);
-    points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
-    scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
-    return;
-  };
-
 
 
 

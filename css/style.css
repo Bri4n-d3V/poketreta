@@ -87,7 +87,7 @@ main {
   height: 110%;
 }
 
-.area-ally {
+.area-friend {
   background-color: rgb(62, 80, 112);
   width: 150%;
   height: 150%;
@@ -101,7 +101,7 @@ main {
   -webkit-transform: skew(74deg);
 }
 
-.ally-container {
+.friend-container {
   position: absolute;
   right: 34%;
   top: 31%;
@@ -188,7 +188,7 @@ main {
   .area-enemy {
     right: -66%;
   }
-  .area-ally {
+  .area-friend {
     left: -28%;
   }
   .versus {
@@ -203,7 +203,7 @@ main {
     right: 41%;
     top: 22%;
   }
-  .ally-container {
+  .friend-container {
     right: 42%;
     top: 28%;
   }
@@ -224,13 +224,13 @@ main {
     -moz-transform: skew(-62deg);
     -webkit-transform: skew(-62deg);
   }
-  .area-ally {
+  .area-friend {
     transform: skew(62deg);
     -o-transform: skew(62deg);
     -moz-transform: skew(62deg);
     -webkit-transform: skew(62deg);
   }
-  .ally-container {
+  .friend-container {
     right: 50%;
     top: 43%;
     transform: skew(-62deg);
@@ -245,7 +245,7 @@ main {
     right: 51%;
     top: 28%;
   }
-  .ally-container {
+  .friend-container {
     top: 32%;
   }
   .versus {

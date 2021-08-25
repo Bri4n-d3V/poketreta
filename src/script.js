@@ -245,40 +245,13 @@ function battleCalculator() {
 
   if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `It's very effective...`;
+    let result = `It's super effective!`;
     window.alert(result);
     points += 10;
     enemyNumber = Math.floor(Math.random() * 152) + 1
   };
 
-  // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
-  if (false) {
 
-    const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel'];
-
-    let result = `It's not very effective...`;
-
-    fireSuperEffectiveAgainst.forEach(type => {
-      if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
-        result = `It's super effective!`;
-        points += 10;
-        enemyNumber = Math.floor(Math.random() * 152) + 1
-      }
-    });
-    window.alert(result);
-  }
-
-  // friend pkmn = FIRE, casos de VULNERABLE.
-  if (false) {
-    const fireVulnerable = ['Ground', 'Rock', 'Water'];
-
-    fireVulnerable.forEach(type => {
-      if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
-        points -= 10;
-      }
-    });
-    window.alert(`You're vulnerable against that pokémon!`);
-  }
 
   scoreBoard(points);
   enemyPkmn(fetchPkmn, enemyNumber)
@@ -291,8 +264,8 @@ function scoreBoard(points) {
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
-  await enemyPkmn(fetchPkmn, 1);
-  await friendPkmn1(fetchPkmn, 4);
+  await enemyPkmn(fetchPkmn, 272);
+  await friendPkmn1(fetchPkmn, 667);
   await friendPkmn2(fetchPkmn, 20);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();

@@ -244,7 +244,7 @@ function battleCalculator() {
   };
   if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `It's very effective...`;
+    let result = `It's super effective!`;
     window.alert(result);
     points += 10;
     enemyNumber = Math.floor(Math.random() * 152) + 1;
@@ -256,10 +256,11 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if {(Math.floor(Math.random() * 2) === 0) points -= 10;
-    scoreBoard(points);
-    return;}
-    else {
+    if (Math.floor(Math.random() * 2) === 0) {
+      points -= 10;
+      scoreBoard(points);
+      return;
+    } else {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
       scoreBoard(points);
@@ -294,9 +295,9 @@ function scoreBoard(points) {
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
-  await enemyPkmn(fetchPkmn, 272);
-  await friendPkmn1(fetchPkmn, 667);
-  await friendPkmn2(fetchPkmn, 20);
+  await enemyPkmn(fetchPkmn, enemyNumber);
+  await friendPkmn1(fetchPkmn, friendNumber1);
+  await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
   await battleBtn();

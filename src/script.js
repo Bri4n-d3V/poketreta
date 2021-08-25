@@ -256,7 +256,9 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) points -= 10;
+    if {(Math.floor(Math.random() * 2) === 0) points -= 10;
+    scoreBoard(points);
+    return;}
     else {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;

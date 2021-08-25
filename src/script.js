@@ -6,8 +6,9 @@ const friendNumber1 = Math.floor(Math.random() * 152) + 1;
 const friendNumber2 = Math.floor(Math.random() * 152) + 1;
 const friendNumber3 = Math.floor(Math.random() * 152) + 1;
 
-// Adicionar comentário.
-let armazenamento = []
+// armazenamentos.
+let armazenamento = [];
+let points = 0;
 
 // chamada ao API do Pkmn que pega as informações desejadas (nome, spites (frente e costas), nome e tipos (1 e 2)).
 async function fetchPkmn(id) {
@@ -149,6 +150,8 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
+    if(Math.floor(Math.random() * 2) === 0 ) points -= 10;
+    else points += 10;
   };
 
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
@@ -159,17 +162,24 @@ function battleCalculator() {
     fireSuperEffectiveAgainst.forEach(type => {
       if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
         result = `It's super effective!`;
+        points += 10;
       }
     });
     window.alert(result);
   }
+  scoreBoard(points);
 };
+
+function scoreBoard(points) {
+  const score = document.querySelector('#score');
+  score.innerHTML = `score: ${points}`;
+}
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
-  await enemyPkmn(fetchPkmn, enemyNumber);
-  await friendPkmn1(fetchPkmn, friendNumber1);
-  await friendPkmn2(fetchPkmn, friendNumber2);
+  await enemyPkmn(fetchPkmn, 1);
+  await friendPkmn1(fetchPkmn, 4);
+  await friendPkmn2(fetchPkmn, 20);
   await friendPkmn3(fetchPkmn, friendNumber3);
   await pickPkmn();
   await battleBtn();

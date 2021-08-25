@@ -226,12 +226,13 @@ function battleBtn() {
 function battleCalculator() {
   // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
   const friendPkmn = armazenamento[armazenamento[4]]
+  const enemyPkmn = armazenamento[0];
   const type1 = friendPkmn.type1
   const type2 = friendPkmn.type2
 
   //typesTable[type1][0];
 
-  if (armazenamento[armazenamento[4]].type1 === 'normal') {
+  if (friendPkmn.type1 === 'normal') {
 
     let result = `It's not very effective...`;
     window.alert(result);
@@ -244,7 +245,7 @@ function battleCalculator() {
   };
 
 
-  if (typesTable[type1][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type1][0].some((type) => (type == enemyPkmn.type1 || type == enemyPkmn.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's super effective!`;
     window.alert(result);
@@ -262,7 +263,7 @@ function battleCalculator() {
     }
 
   };
-  if (typesTable[type2][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type2][0].some((type) => (type == enemyPkmn.type1 || type == enemyPkmn.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's very effective...`;
     window.alert(result);

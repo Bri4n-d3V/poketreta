@@ -241,7 +241,7 @@ const type2 = friendPkmn.type2
   };
 
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
-  if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+  if (false) {
 
     const fireSuperEffectiveAgainst = ['bug', 'grass', 'ice', 'steel'];
 
@@ -258,7 +258,7 @@ const type2 = friendPkmn.type2
   }
 
   // friend pkmn = FIRE, casos de VULNERABLE.
-  if (armazenamento[armazenamento[4]].type1 === 'fire' || armazenamento[armazenamento[4]].type2 === 'fire') {
+  if (false) {
     const fireVulnerable = ['Ground', 'Rock', 'Water'];
 
     fireVulnerable.forEach(type => {

@@ -4,9 +4,16 @@
 
 const {
     fetchPkmn,
+    enemyPkmn,
+    friendPkmn1,
+    friendPkmn2,
+    friendPkmn3,
+    pickPkmn,
+    battleBtn,
 } = require("../src/script");
 
 jest.mock("../src/script");
+
 
 fetchPkmn.mockImplementation(async () => ({
 
@@ -51,13 +58,15 @@ fetchPkmn.mockImplementation(async () => ({
     ]
 }
 ))
-
-test('verifica dados retornaados', async () => {
-    fetchPkmn(413).then((Pkmn) => {
-        expect(Pkmn.name).toEqual('wormadam-plant');
-        expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
-        expect(Pkmn.sprites.back_default).toEqual("http://pokeapi.co/media/sprites/pokemon/back/413.png")
-        expect(Pkmn.types[0].type.name).toEqual("grass");
-        expect(Pkmn.types[1].type.name).toEqual("poison");
+describe('Name of the group', () => {
+    it('verifica dados retornaados', async () => {
+        fetchPkmn(413).then((Pkmn) => {
+            expect(Pkmn.name).toEqual('wormadam-plant');
+            expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
+            expect(Pkmn.sprites.back_default).toEqual("http://pokeapi.co/media/sprites/pokemon/back/413.png")
+            expect(Pkmn.types[0].type.name).toEqual("grass");
+            expect(Pkmn.types[1].type.name).toEqual("poison");
+        })
     })
-})
+});
+

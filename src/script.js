@@ -250,6 +250,13 @@ function battleCalculator() {
     points += 10;
     enemyNumber = Math.floor(Math.random() * 152) + 1
   };
+  if (typesTable[type2][0].some((type) => (type == armazenamento[0].type1 || type == armazenamento[0].type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `It's very effective...`;
+    window.alert(result);
+    points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1
+  };
 
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
   if (false) {

@@ -169,17 +169,17 @@ main {
 
 /* button */
 #battle-btn {
-  background-color: rgb(102, 53, 40);
-  border-radius: 53%;
+  /* background-color: rgb(102, 53, 40); */
+  border-radius: 50%;
   border: none;
-  color: rgb(204, 204, 204);
+  color: rgb(95, 95, 95);
   font-weight: 800;
   width: 80px;
   height: 45px;
   position: absolute;
   margin: 0px;
   top: 65%;
-  right: 42.5%;
+  right: 52%;
   cursor: pointer;
 }
 
@@ -251,4 +251,19 @@ main {
   .versus {
     margin: 28.55% 42%;
   }
+
+  #battle-btn {
+  /* background-color: rgb(102, 53, 40); */
+  border-radius: 50%;
+  border: none;
+  color: rgb(95, 95, 95);
+  font-weight: 800;
+  width: 80px;
+  height: 45px;
+  position: absolute;
+  margin: 0px;
+  top: 65%;
+  right: 45%;
+  cursor: pointer;
+}
 }

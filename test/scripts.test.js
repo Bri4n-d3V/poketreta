@@ -10,6 +10,7 @@ const {
     friendPkmn3,
     pickPkmn,
     battleBtn,
+    battleCalculator
 } = require("../src/script");
 
 jest.mock("../src/script");
@@ -59,6 +60,9 @@ fetchPkmn.mockImplementation(async () => ({
 }
 ))
 describe('Name of the group', () => {
+    it('should ', async() => {
+      await battleCalculator();
+    });
     it('verifica dados retornaados', async () => {
         fetchPkmn(413).then((Pkmn) => {
             expect(Pkmn.name).toEqual('wormadam-plant');

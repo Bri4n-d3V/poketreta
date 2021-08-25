@@ -1,4 +1,5 @@
 // const fetch = require('node-fetch');
+// api: https://pokeapi.co/ 
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
 let enemyNumber = Math.floor(Math.random() * 152) + 1;
@@ -9,6 +10,83 @@ const friendNumber3 = Math.floor(Math.random() * 152) + 1;
 // armazenamentos.
 let armazenamento = [];
 let points = 0;
+const typesTable = {
+  normal: [
+    [''],
+    ['fighting']
+  ],
+  fire: [
+    ['bug', 'grass', 'ice', 'steel'],
+    ['ground', 'rock', 'water']
+  ],
+  water: [
+    ['fire', 'ground', 'rock'],
+    ['electric', 'grass']
+  ],
+  grass: [
+    ['ground', 'rock', 'water'],
+    ['bug', 'fire', 'flying', 'ice', 'poison']
+  ],
+  electric: [
+    ['flying', 'water'],
+    ['ground']
+  ],
+  ice: [
+    ['dragon', 'flying', 'grass', 'ground'],
+    ['fighting', 'fire', 'rock', 'steel']
+  ],
+  fighting: [
+    ['dark', 'ice', 'normal', 'rock', 'steel'],
+    ['fairy', 'flying', 'psychic']
+  ],
+  poison: [
+    ['fairy', 'grass'],
+    ['ground', 'psychic']
+  ],
+  ground: [
+    ['electric', 'fire', 'poison', 'rock', 'steel'],
+    ['grass', 'ice', 'water']
+  ],
+  flying: [
+    ['bug', 'fighting', 'grass'],
+    ['electric', 'ice', 'rock']
+  ],
+  psychic: [
+    ['fighting', 'poison'],
+    ['bug', 'dark', 'ghost']
+  ],
+  bug: [
+    ['dark', 'grass', 'psychic'],
+    ['fire', 'flying', 'rock']
+  ],
+  rock: [
+    ['bug', 'fire', 'flying', 'ice'],
+    ['fighting', 'grass', 'ground', 'steel', 'water']
+  ],
+  ghost: [
+    ['Ghost', 'Psychic'],
+    ['Dark', 'Ghost']
+  ],
+  dragon: [
+    ['dragon'],
+    ['dragon', 'fairy', 'ice']
+  ],
+  dark: [
+    ['ghost', 'psychic'],
+    ['bug', 'fairy', 'fighting']
+  ],
+  steel: [
+    ['fairy', 'ice', 'rock'],
+    ['fighting', 'fire', 'ground']
+  ],
+  fairy: [
+    ['dark', 'dragon', 'fighting'],
+    ['poison', 'steel']
+  ]
+
+
+
+}
 
 // chamada ao API do Pkmn que pega as informações desejadas (nome, spites (frente e costas), nome e tipos (1 e 2)).
 async function fetchPkmn(id) {
@@ -147,12 +225,19 @@ function battleBtn() {
 // calculo da batalha pkmn de acordo com os tipos.
 function battleCalculator() {
   // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
-  if (armazenamento[armazenamento[4]].type1 === 'normal' || armazenamento[armazenamento[4]].type2 === 'normal') {
+const friendPkmn = armazenamento[armazenamento[4]]
+const type1 = friendPkmn.type1
+const type2 = friendPkmn.type2
 
-    let result = `It's not very effective...`;
+//typesTable[type1][0];
+
+  if ( typesTable[type1][0].some((type)=>(type == armazenamento[0].type1 || type == armazenamento[0].type2)) ) {
+
+    let result = `It's very effective...`;
     window.alert(result);
     if (Math.floor(Math.random() * 2) === 0) points -= 10;
     else points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1
   };
 
   // friend pkmn = FIRE, casos de SUPER EFFECTIVE.
@@ -166,6 +251,7 @@ function battleCalculator() {
       if (armazenamento[0].type1 === type || armazenamento[0].type2 === type) {
         result = `It's super effective!`;
         points += 10;
+        enemyNumber = Math.floor(Math.random() * 152) + 1
       }
     });
     window.alert(result);
@@ -211,4 +297,6 @@ module.exports = {
   friendPkmn3,
   pickPkmn,
   battleBtn,
+  battleCalculator,
+
 };

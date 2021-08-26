@@ -50,19 +50,51 @@ header img {
 
 /* Main */
 /* Arena */
-body {
+.arena {
+  display: flex;
+  height: 100vh;
   background-image: url("../img/fundo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-y: 60.2px;
-  background-size: 100vh 61.4vh;
+  background-size: 100% 68%;
+}
+
+.enemy-container {
+  background-color: rgb(105, 40, 40);
+  border: 1px outset rgb(255, 0, 0);
+  text-align: center;
+  align-items: center;
+  min-height: 190px;
+  min-width: 190px;
+  padding: 30px 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 16%;
+  top: 20%;
+  cursor: pointer;
+}
+
+.friend-container {
+  position: absolute;
+  left: 16%;
+  top: 40%;
+  justify-content: space-evenly;
+  text-align: center;
+  border: 1px outset rgb(0, 60, 255);
+  background-color: rgb(40, 57, 105);
+  border-radius: 50%;
+  padding: 12px 40px;
+  min-height: 190px;
+  min-width: 190px;
+  cursor: pointer;
 }
 
 .versus {
   background-color: rgb(206, 98, 59);
   width: 120px;
   height: 120px;
-  margin: 15.55% 44.55%;
+  margin: 17.85% 44.55%;
   position: absolute;
   border-radius: 50%;
   display: flex;
@@ -76,7 +108,7 @@ body {
   background-color: rgb(141, 91, 57);
   display: flex;
   align-items: center;
-  width: 100vh;
+  width: 100%;
   position: fixed;
   bottom: -2px;
   padding: 6px 0;
@@ -120,7 +152,7 @@ body {
   height: 45px;
   position: absolute;
   margin: 0px;
-  top: 65%;
+  top: 58%;
   right: 47.8%;
   cursor: pointer;
 }

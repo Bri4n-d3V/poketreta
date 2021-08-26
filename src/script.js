@@ -151,6 +151,7 @@ async function friendPkmn1(callback, param) {
   friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
+  friendPkmnType2.innerHTML = '';
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
   };
@@ -168,6 +169,7 @@ async function friendPkmn2(callback, param) {
   friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
+  friendPkmnType2.innerHTML = '';
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
   };
@@ -185,6 +187,7 @@ async function friendPkmn3(callback, param) {
   friendPkmnName.innerHTML = `<strong> ${pkmn.name} </strong>`;
   friendPkmnSpriteFront.src = pkmn.spriteFront;
   friendPkmnType1.innerHTML = pkmn.type1;
+  friendPkmnType2.innerHTML = '';
   if (pkmn.type1 !== pkmn.type2) {
     friendPkmnType2.innerHTML = pkmn.type2
   };

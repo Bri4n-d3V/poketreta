@@ -16,7 +16,7 @@ const {
 
 
 
-const tes = {
+const test = {
 
 
     "id": 413,
@@ -65,10 +65,17 @@ const tes = {
 
 describe('testa a função fetchPkmn', () => {
     it('shoud ', async () => {
-        await fetchPkmn();
+        const fetch = jest.fn().mockResolvedValue({json: () => {
+            return test;
+        }, });
+        const obj = await fetch()
+        const objTest = await obj.json()
+
+        console.log(await fetchPkmn(413));
+
     });
 });
-describe('testa a função enemyPkmn', () => {
+/* describe('testa a função enemyPkmn', () => {
     it('should ', async () => {
         await enemyPkmn();
     });
@@ -125,4 +132,4 @@ describe('telaPkmn', () => {
     it('should ', async () => {
      //   await telaPkmn();
     });
-});
+}); */

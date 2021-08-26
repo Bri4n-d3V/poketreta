@@ -101,7 +101,7 @@ async function fetchPkmn(id) {
       type2,
     }
   } catch (error) {
-    return await fetchPkmn(id); //tratar o erro 
+    console.log(error)
   };
 };
 // faz o armazenamento dos dados 

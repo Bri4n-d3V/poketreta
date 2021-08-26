@@ -218,9 +218,9 @@ function pickPkmn() {
     document.querySelector('#battle-btn').disabled = false;
     telaPkmn(index);
     // Muda calssa SELECTED para que possa mudar a cor do friend pkmn selecionado.
-    for (let j = 0; j < option.length; j += 1) {
-      option[j].classList.remove('selected');
-    }
+    option.forEach(div => {
+      div.classList.remove('selected');
+    });
     pkmn.classList.add('selected');
   }));
 }

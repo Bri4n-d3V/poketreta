@@ -1,13 +1,10 @@
 // const fetch = require('node-fetch');
 // api: https://pokeapi.co/ 
-
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
-
 // Gera número aleatório que serve de ID para os PKMN.
 function randomNumber() {
   return Math.floor(Math.random() * 152) + 1;
 }
-
 // armazenamentos.
 let armazenamento = [];
 let points = 0;
@@ -234,6 +231,7 @@ function battleCalculator() {
     points += 10;
     scoreBoard(points);
     enemyPkmn(fetchPkmn, randomNumber());
+    return;
   }
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
   if (bolVulnerType1 || bolVulnerType2) { // para todos tipos de acordo com a typesTable  
@@ -250,6 +248,7 @@ function battleCalculator() {
       await friendPkmn3(fetchPkmn, randomNumber());
       telaPkmn(numero);
     })(posição - 1);
+    return;
   }
 
   if (type1 === 'normal' || type2 === 'normal') {
@@ -270,12 +269,14 @@ function battleCalculator() {
       })(posição - 1);
       let result = `It's not a very effective... bad lucky for you.`;
       window.alert(result);
+      return;
     } else {
       points += 10
       scoreBoard(points);
       let result = `It's not a very effective... but you took the advantage!`;
       window.alert(result);
       enemyPkmn(fetchPkmn, randomNumber());
+      return;
     }
   } else { // para todos tipos de acordo com a typesTable  
     let result = `It's a draw.`;
@@ -298,6 +299,7 @@ function battleCalculator() {
       }
     })(posição - 1);
     enemyPkmn(fetchPkmn, randomNumber());
+    return;
   }
 };
 

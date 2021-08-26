@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: mySolidFont;
+  src: url(pokemon-solid.ttf);
+}
+
+@font-face {
   font-family: mySecondFont;
   src: url(pokemon-gb.ttf);
 }
@@ -46,12 +51,11 @@ header img {
 /* Main */
 /* Arena */
 body {
-  background-image: url('../img/fundo.png');
+  background-image: url("../img/fundo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 60%;
 }
-
 
 .versus {
   background-color: rgb(206, 98, 59);
@@ -79,7 +83,7 @@ body {
   border: solid 6px rgb(102, 53, 40);
 }
 
-.inventario>.option {
+.inventario > .option {
   border: solid 6px rgb(102, 53, 40);
   background-color: rgb(97, 65, 47);
   border-radius: 5.75%;
@@ -89,17 +93,17 @@ body {
   cursor: pointer;
 }
 
-.inventario>.option:hover {
+.inventario > .option:hover {
   border: solid 6px rgba(7, 84, 90, 0.5);
   background-color: rgb(4, 54, 54, 0.5);
 }
 
-.inventario>.selected {
+.inventario > .selected {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }
 
-.inventario>.option>div {
+.inventario > .option > div {
   justify-content: space-evenly;
   text-align: center;
 }
@@ -129,7 +133,6 @@ body {
 }
 
 @media screen and (max-width: 908px) {
-
   .versus {
     margin: 28.55% 42%;
   }

@@ -112,10 +112,10 @@ async function fetchPkmn(id) {
 };
 
 // Adicionar comentário.
-function pcDado(obj, objs, index) {
-  obj
-  obj[index] = objs;
-  return obj;
+function pcDado(array, objs, index) {
+  array
+  array[index] = objs;
+  return array;
 };
 
 
@@ -218,9 +218,9 @@ function pickPkmn() {
     document.querySelector('#battle-btn').disabled = false;
     telaPkmn(index);
     // Muda calssa SELECTED para que possa mudar a cor do friend pkmn selecionado.
-    for (let j = 0; j < option.length; j += 1) {
-      option[j].classList.remove('selected');
-    }
+    option.forEach(div => {
+      div.classList.remove('selected');
+    });
     pkmn.classList.add('selected');
   }));
 }
@@ -354,6 +354,7 @@ function battleCalculator() {
     } else {
       points += 10
       scoreBoard(points);
+      enemyPkmn(fetchPkmn, randomNumber());
       return;
     }
   }

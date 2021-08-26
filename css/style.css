@@ -23,18 +23,30 @@
   font-size: 10px;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Header */
 
 header {
   background-color: rgb(15, 26, 23);
-
   display: flex;
   width: 100%;
   height: 60px;
-  padding: 0 80px;
+  /* padding: 0 80px; */
   align-items: center;
   z-index: 20;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 header h1 {
@@ -96,7 +108,7 @@ header img {
 .versus-container {
   display: flex;
   flex-direction: column;
- 
+
   justify-items: center;
   margin-top: 23ch;
 }
@@ -113,6 +125,7 @@ header img {
   justify-content: center;
   font-size: 35px;
 }
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -131,31 +144,37 @@ header img {
   width: 100%;
   bottom: -2px;
   padding: 6px 0;
-  justify-content: space-evenly;
+  justify-content: space-around;
   border: solid 6px rgb(102, 53, 40);
 }
 
-.inventario > .option {
+.inventario>.option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  justify-content: space-between;
   border: solid 6px rgb(102, 53, 40);
   background-color: rgb(97, 65, 47);
   border-radius: 5.75%;
   padding: 12px 40px;
-  min-height: 190px;
+  max-width: 200px;
+  max-height: 200px;
   height: 100%;
   cursor: pointer;
 }
 
-.inventario > .option:hover {
+.inventario>.option:hover {
   border: solid 6px rgba(7, 84, 90, 0.5);
   background-color: rgb(4, 54, 54, 0.5);
 }
 
-.inventario > .selected {
+.inventario>.selected {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }
 
-.inventario > .option > div {
+.inventario>.option>div {
   justify-content: space-evenly;
   text-align: center;
 }

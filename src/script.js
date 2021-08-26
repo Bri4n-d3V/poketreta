@@ -239,7 +239,7 @@ function battleCalculator() {
   const type2 = friendPkmn.type2
 
   // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
-  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2)) || typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's super effective!`;
     window.alert(result);
@@ -248,21 +248,11 @@ function battleCalculator() {
     enemyPkmn(fetchPkmn, randomNumber());
     return;
   }
-  // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
 
-  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `It's super effective!`;
-    window.alert(result);
-    points += 10;
-    scoreBoard(points);
-    enemyPkmn(fetchPkmn, randomNumber());
-    return;
-  }
 
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
 
-  if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+  if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2)) || typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's vulnerable pokémon type...`;
     window.alert(result);
@@ -295,39 +285,10 @@ function battleCalculator() {
     return;
   }
 
-  if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `It's vulnerable pokémon type...`;
-    window.alert(result);
-    points -= 10;
 
-    scoreBoard(points);
-
-    (async (numero) => {
-
-      if (numero == 0) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
-      if (numero == 1) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
-      if (numero == 2) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
-    })(posição - 1);
-    return;
-  }
-  if (friendPkmn.type1 === 'normal') {
-    let result = `It's not very effective...`;
+  if (friendPkmn.type1 === 'normal' || friendPkmn.type2 === 'normal') {
+    let result = `It's very Normal...`;
     window.alert(result);
     if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;
@@ -355,37 +316,6 @@ function battleCalculator() {
       points += 10
       scoreBoard(points);
       enemyPkmn(fetchPkmn, randomNumber());
-      return;
-    }
-  }
-  if (friendPkmn.type2 === 'normal') {
-    let result = `It's not very effective...`;
-    window.alert(result);
-    if ((Math.floor(Math.random() * 3) === 0)) {
-      points -= 10;
-      scoreBoard(points);
-      (async (numero) => {
-        console.log(numero)
-        if (numero == 0) {
-
-          await friendPkmn1(fetchPkmn, randomNumber());
-          telaPkmn(numero);
-        }
-        if (numero == 1) {
-
-          await friendPkmn2(fetchPkmn, randomNumber());
-          telaPkmn(numero);
-        }
-        if (numero == 2) {
-
-          await friendPkmn3(fetchPkmn, randomNumber());
-          telaPkmn(numero);
-        }
-      })(posição - 1);
-      return;
-    } else {
-      points += 10
-      scoreBoard(points);
       return;
     }
   } else { // para todos tipos de acordo com a typesTable  
@@ -425,8 +355,8 @@ window.onload = async _ => {
   await friendPkmn1(fetchPkmn, randomNumber());
   await friendPkmn2(fetchPkmn, randomNumber());
   await friendPkmn3(fetchPkmn, randomNumber());
-  await pickPkmn();
-  await battleBtn();
+  pickPkmn();
+  battleBtn();
 };
 
 // exporta funcoes para o arquivo de testes com jest

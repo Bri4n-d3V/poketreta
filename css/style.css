@@ -26,7 +26,7 @@
 /* Header */
 
 header {
-  /* background-color: rgb(15, 26, 23); */
+  background-color: rgb(15, 26, 23);
   position: fixed;
   display: flex;
   width: 100%;
@@ -54,7 +54,8 @@ body {
   background-image: url("../img/fundo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 100% 60%;
+  background-position-y: 60.2px;
+  background-size: 100% 61.4%;
 }
 
 .versus {
@@ -72,7 +73,7 @@ body {
 
 /* Inventário */
 .inventario {
-  /* background-color: rgb(141, 91, 57); */
+  background-color: rgb(141, 91, 57);
   display: flex;
   align-items: center;
   width: 100%;

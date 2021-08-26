@@ -358,7 +358,7 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if (!(Math.floor(Math.random() * 5) === 0)) {
+    if (!(Math.floor(Math.random() * 7) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -396,7 +396,7 @@ function battleCalculator() {
     }
 
   }
-  if (friendPkmn.type2 === 'normal') {
+  if (!(Math.floor(Math.random() * 7) === 0)) {
 
     let result = `It's not very effective...`;
     window.alert(result);

@@ -86,7 +86,7 @@ main {
   padding: 12px 40px;
   min-height: 190px;
   min-width: 190px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 /* .enemy-container:hover {

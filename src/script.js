@@ -3,9 +3,9 @@
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
 let enemyNumber = Math.floor(Math.random() * 152) + 1;
-const friendNumber1 = Math.floor(Math.random() * 152) + 1;
-const friendNumber2 = Math.floor(Math.random() * 152) + 1;
-const friendNumber3 = Math.floor(Math.random() * 152) + 1;
+let friendNumber1 = Math.floor(Math.random() * 152) + 1;
+let friendNumber2 = Math.floor(Math.random() * 152) + 1;
+let friendNumber3 = Math.floor(Math.random() * 152) + 1;
 
 // armazenamentos.
 let armazenamento = [];
@@ -225,75 +225,133 @@ function battleBtn() {
 // calculo da batalha pkmn de acordo com os tipos.
 function battleCalculator() {
   // friend pkmn = NORMAL, casos de SUPER EFFECTIVE.
-  const friendPkmn = armazenamento[armazenamento[4]]
+  const posição = armazenamento[4];
+  const friendPkmn = armazenamento[posição];
   const enemyPkmn1 = armazenamento[0];
   const type1 = friendPkmn.type1
   const type2 = friendPkmn.type2
 
 
+  
+    // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
+    if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-  // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
-  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `It's super effective!`;
-    window.alert(result);
-    points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
-    scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
-
-    return;
-  };
-  // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
-
-  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `It's super effective!`;
-    window.alert(result);
-    points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
-    scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
-    return;
-  };
-  if (friendPkmn.type1 === 'normal') {
-
-    let result = `It's not very effective...`;
-    window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) {
-      points -= 10;
+      let result = `It's super effective! type 1`;
+      window.alert(result);
+      points += 10;
+      enemyNumber = Math.floor(Math.random() * 152) + 1;
       scoreBoard(points);
+      enemyPkmn(fetchPkmn, enemyNumber);
+
       return;
-    } else {
+    };
+    // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
+
+    if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+      let result = `It's super effective!`;
+      window.alert(result);
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
       scoreBoard(points);
       enemyPkmn(fetchPkmn, enemyNumber);
       return;
-    }
+    };
+    if (friendPkmn.type1 === 'normal') {
 
-  };
-  if (friendPkmn.type2 === 'normal') {
+      let result = `It's not very effective...`;
+      window.alert(result);
+      if (Math.floor(Math.random() * 2) === 0) {
+        points -= 10;
+        scoreBoard(points);
+        return;
+      } else {
+        points += 10;
+        enemyNumber = Math.floor(Math.random() * 152) + 1;
+        scoreBoard(points);
+        enemyPkmn(fetchPkmn, enemyNumber);
+        return;
+      }
 
-    let result = `It's not very effective...`;
+    };
+    if (friendPkmn.type2 === 'normal') {
+
+      let result = `It's not very effective...`;
+      window.alert(result);
+      if (Math.floor(Math.random() * 2) === 0) {
+        points -= 10;
+        scoreBoard(points);
+        return;
+      } else {
+        points += 10;
+        enemyNumber = Math.floor(Math.random() * 152) + 1;
+        scoreBoard(points);
+        enemyPkmn(fetchPkmn, enemyNumber);
+        return;
+      }
+
+
+    };
+    
+  // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
+
+  if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `perdeu playboy `;
     window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) {
-      points -= 10;
-      scoreBoard(points);
-      return;
-    } else {
-      points += 10;
-      enemyNumber = Math.floor(Math.random() * 152) + 1;
-      scoreBoard(points);
-      enemyPkmn(fetchPkmn, enemyNumber);
-      return;
-    }
+    points -= 10;
 
+    scoreBoard(points);
 
+    (async (numero) => {
+      console.log(numero)
+      if (numero == 0) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        telaPkmn(numero);
+
+      } else if (numero == 1) {
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        telaPkmn(numero);
+      } else if (numero == 2) {
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+    })(posição - 1);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
   };
 
+  if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
+    let result = `perdeu playboy `;
+    window.alert(result);
+    points -= 10;
 
+    scoreBoard(points);
+
+    (async (numero) => {
+      console.log(numero)
+      if (numero == 0) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        telaPkmn(numero);
+
+      } else if (numero == 1) {
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        telaPkmn(numero);
+      } else if (numero == 2) {
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+    })(posição - 1);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  };
 };
 
 function scoreBoard(points) {

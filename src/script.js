@@ -256,7 +256,7 @@ function battleCalculator() {
 
     let result = `It's a vulnerable pokémon type...`;
     window.alert(result);
-    points -= 10;
+    points -= 20;
 
     scoreBoard(points);
 

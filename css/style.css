@@ -1,9 +1,21 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(pokemon-hollow.ttf);
+}
+
+@font-face {
+  font-family: mySecondFont;
+  src: url(pokemon-gb.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
   color: rgb(221, 221, 221);
+  font-family: mySecondFont;
+  font-size: 10px;
 }
 
 /* Header */
@@ -18,6 +30,12 @@ header {
   align-items: center;
   z-index: 20;
   justify-content: space-between;
+}
+
+header h1 {
+  font-family: myFirstFont;
+  font-size: 30px;
+  padding: 100px;
 }
 
 header img {
@@ -131,7 +149,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 80px;
+  font-size: 35px;
 }
 
 /* Inventário */
@@ -147,7 +165,7 @@ main {
   border: solid 6px rgb(102, 53, 40);
 }
 
-.inventario > .option {
+.inventario>.option {
   border: solid 6px rgb(102, 53, 40);
   background-color: rgb(97, 65, 47);
   border-radius: 5.75%;
@@ -157,17 +175,17 @@ main {
   cursor: pointer;
 }
 
-.inventario > .option:hover {
+.inventario>.option:hover {
   border: solid 6px rgba(7, 84, 90, 0.5);
   background-color: rgb(4, 54, 54, 0.5);
 }
 
-.inventario > .selected {
+.inventario>.selected {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }
 
-.inventario > .option > div {
+.inventario>.option>div {
   justify-content: space-evenly;
   text-align: center;
 }
@@ -193,9 +211,11 @@ main {
   .area-enemy {
     right: -66%;
   }
+
   .area-friend {
     left: -28%;
   }
+
   .versus {
     margin: 17.55% 43%;
   }
@@ -204,7 +224,8 @@ main {
     right: 61%;
     top: 43%;
   }
-/*   .enemy-container:hover {
+
+  /*   .enemy-container:hover {
     right: 41%;
     top: 22%;
   } */
@@ -223,18 +244,21 @@ main {
     -moz-transform: skew(62deg);
     -webkit-transform: skew(62deg);
   }
+
   .enemy-container {
     transform: skew(-62deg);
     -o-transform: skew(-62deg);
     -moz-transform: skew(-62deg);
     -webkit-transform: skew(-62deg);
   }
+
   .area-friend {
     transform: skew(62deg);
     -o-transform: skew(62deg);
     -moz-transform: skew(62deg);
     -webkit-transform: skew(62deg);
   }
+
   .friend-container {
     right: 50%;
     top: 43%;
@@ -243,32 +267,35 @@ main {
     -moz-transform: skew(-62deg);
     -webkit-transform: skew(-62deg);
   }
+
   .versus {
     margin: 17.55% 43%;
   }
-/*   .enemy-container:hover {
+
+  /*   .enemy-container:hover {
     right: 51%;
     top: 28%;
   } */
   .friend-container {
     top: 32%;
   }
+
   .versus {
     margin: 28.55% 42%;
   }
 
   #battle-btn {
-  /* background-color: rgb(102, 53, 40); */
-  border-radius: 50%;
-  border: none;
-  color: rgb(95, 95, 95);
-  font-weight: 800;
-  width: 80px;
-  height: 45px;
-  position: absolute;
-  margin: 0px;
-  top: 65%;
-  right: 45%;
-  cursor: pointer;
-}
+    /* background-color: rgb(102, 53, 40); */
+    border-radius: 50%;
+    border: none;
+    color: rgb(95, 95, 95);
+    font-weight: 800;
+    width: 80px;
+    height: 45px;
+    position: absolute;
+    margin: 0px;
+    top: 65%;
+    right: 45%;
+    cursor: pointer;
+  }
 }

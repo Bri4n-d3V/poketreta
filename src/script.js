@@ -270,7 +270,7 @@ function battleCalculator() {
 
   if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `perdeu playboy `;
+    let result = `It's vulnerable pokémon type...`;
     window.alert(result);
     points -= 10;
 
@@ -358,7 +358,7 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if ((Math.floor(Math.random() * 7) === 0)) {
+    if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -400,7 +400,7 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if ((Math.floor(Math.random() * 7) === 0)) {
+    if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {

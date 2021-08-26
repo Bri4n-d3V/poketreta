@@ -288,7 +288,7 @@ function battleCalculator() {
 
 
   if (friendPkmn.type1 === 'normal' || friendPkmn.type2 === 'normal') {
-    let result = `It's very Normal...`;
+    let result = `It's not a very effective...`;
     window.alert(result);
     if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;

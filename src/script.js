@@ -425,8 +425,8 @@ window.onload = async _ => {
   await friendPkmn1(fetchPkmn, randomNumber());
   await friendPkmn2(fetchPkmn, randomNumber());
   await friendPkmn3(fetchPkmn, randomNumber());
-  await pickPkmn();
-  await battleBtn();
+  pickPkmn();
+  battleBtn();
 };
 
 // exporta funcoes para o arquivo de testes com jest

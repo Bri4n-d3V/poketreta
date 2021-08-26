@@ -3,7 +3,8 @@
 
 // Gerador de números aleatórios que são usados como os IDs dos Pkmn.
 
-function randomNumber () {
+// Gera número aleatório que serve de ID para os PKMN.
+function randomNumber() {
   return Math.floor(Math.random() * 152) + 1;
 }
 
@@ -83,9 +84,6 @@ const typesTable = {
     ['dark', 'dragon', 'fighting'],
     ['poison', 'steel']
   ]
-
-
-
 }
 
 // chamada ao API do Pkmn que pega as informações desejadas (nome, spites (frente e costas), nome e tipos (1 e 2)).
@@ -246,9 +244,8 @@ function battleCalculator() {
     let result = `It's super effective!`;
     window.alert(result);
     points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
     scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
+    enemyPkmn(fetchPkmn, randomNumber());
     return;
   }
   // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
@@ -258,9 +255,8 @@ function battleCalculator() {
     let result = `It's super effective!`;
     window.alert(result);
     points += 10;
-    enemyNumber = Math.floor(Math.random() * 152) + 1;
     scoreBoard(points);
-    enemyPkmn(fetchPkmn, enemyNumber);
+    enemyPkmn(fetchPkmn, randomNumber());
     return;
   }
 
@@ -277,35 +273,25 @@ function battleCalculator() {
     (async (numero) => {
 
       if (numero == 0) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
 
       }
       if (numero == 1) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
       if (numero == 2) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
     })(posição - 1);
-    enemyPkmn(fetchPkmn, enemyNumber);
     return;
   }
 
@@ -320,34 +306,24 @@ function battleCalculator() {
     (async (numero) => {
 
       if (numero == 0) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
       if (numero == 1) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
       if (numero == 2) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn1(fetchPkmn, randomNumber());
+        await friendPkmn2(fetchPkmn, randomNumber());
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
     })(posição - 1);
-    enemyPkmn(fetchPkmn, enemyNumber);
     return;
   }
   if (friendPkmn.type1 === 'normal') {
@@ -359,27 +335,25 @@ function battleCalculator() {
       (async (numero) => {
         console.log(numero)
         if (numero == 0) {
-          friendNumber1 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn1(fetchPkmn, friendNumber1);
+
+          await friendPkmn1(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
         if (numero == 1) {
-          friendNumber2 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn2(fetchPkmn, friendNumber2);
+
+          await friendPkmn2(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
         if (numero == 2) {
-          friendNumber3 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn3(fetchPkmn, friendNumber3);
+
+          await friendPkmn3(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
       })(posição - 1);
       return;
     } else {
-      points += 10;
-      enemyNumber = Math.floor(Math.random() * 152) + 1;
+      points += 10
       scoreBoard(points);
-      enemyPkmn(fetchPkmn, enemyNumber);
       return;
     }
   }
@@ -392,27 +366,25 @@ function battleCalculator() {
       (async (numero) => {
         console.log(numero)
         if (numero == 0) {
-          friendNumber1 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn1(fetchPkmn, friendNumber1);
+
+          await friendPkmn1(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
         if (numero == 1) {
-          friendNumber2 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn2(fetchPkmn, friendNumber2);
+
+          await friendPkmn2(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
         if (numero == 2) {
-          friendNumber3 = Math.floor(Math.random() * 152) + 1;
-          await friendPkmn3(fetchPkmn, friendNumber3);
+
+          await friendPkmn3(fetchPkmn, randomNumber());
           telaPkmn(numero);
         }
       })(posição - 1);
       return;
     } else {
-      points += 10;
-      enemyNumber = Math.floor(Math.random() * 152) + 1;
+      points += 10
       scoreBoard(points);
-      enemyPkmn(fetchPkmn, enemyNumber);
       return;
     }
   } else { // para todos tipos de acordo com a typesTable  
@@ -423,22 +395,19 @@ function battleCalculator() {
     (async (numero) => {
       console.log(numero)
       if (numero == 0) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
+        await friendPkmn1(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
       if (numero == 1) {
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
+        await friendPkmn2(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
       if (numero == 2) {
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
+        await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
       }
     })(posição - 1);
-    enemyPkmn(fetchPkmn, enemyNumber);
+    enemyPkmn(fetchPkmn, randomNumber());
     return;
   }
 };

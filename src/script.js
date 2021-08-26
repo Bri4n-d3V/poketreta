@@ -238,8 +238,15 @@ function battleCalculator() {
   const type1 = friendPkmn.type1
   const type2 = friendPkmn.type2
 
+  const bolSuperEffType1 = typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
+  const bolSuperEffType2 = typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
+
+  const bolVulnerType1 = typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
+  const bolVulnerType2 = typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
+
+
   // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
-  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2)) || typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+  if (bolSuperEffType1 || bolSuperEffType2) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's super effective!`;
     window.alert(result);
@@ -252,7 +259,7 @@ function battleCalculator() {
 
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
 
-  if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2)) || typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+  if (bolVulnerType1 || bolVulnerType2) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's a vulnerable pokémon type...`;
     window.alert(result);
@@ -267,7 +274,6 @@ function battleCalculator() {
         await friendPkmn2(fetchPkmn, randomNumber());
         await friendPkmn3(fetchPkmn, randomNumber());
         telaPkmn(numero);
-
       }
       if (numero == 1) {
         await friendPkmn1(fetchPkmn, randomNumber());
@@ -287,7 +293,7 @@ function battleCalculator() {
 
 
 
-  if (friendPkmn.type1 === 'normal' || friendPkmn.type2 === 'normal') {
+  if (type1 === 'normal' || type2 === 'normal') {
     if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;
       scoreBoard(points);
@@ -355,7 +361,7 @@ Please play again anytime soon! :)`)
     document.location.reload();
   }
   if (points >= 100) {
-    window.alert (`YOU WON!
+    window.alert(`YOU WON!
 Thank you for playing! :)`);
     document.location.reload();
   }

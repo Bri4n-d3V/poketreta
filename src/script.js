@@ -268,25 +268,10 @@ function battleCalculator() {
     scoreBoard(points);
 
     (async (numero) => {
-
-      if (numero == 0) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
-      if (numero == 1) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
-      if (numero == 2) {
-        await friendPkmn1(fetchPkmn, randomNumber());
-        await friendPkmn2(fetchPkmn, randomNumber());
-        await friendPkmn3(fetchPkmn, randomNumber());
-        telaPkmn(numero);
-      }
+      await friendPkmn1(fetchPkmn, randomNumber());
+      await friendPkmn2(fetchPkmn, randomNumber());
+      await friendPkmn3(fetchPkmn, randomNumber());
+      telaPkmn(numero);
     })(posição - 1);
     return;
   }

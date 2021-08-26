@@ -354,6 +354,7 @@ function battleCalculator() {
     } else {
       points += 10
       scoreBoard(points);
+      enemyPkmn(fetchPkmn, randomNumber());
       return;
     }
   }

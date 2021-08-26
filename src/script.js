@@ -254,7 +254,7 @@ function battleCalculator() {
 
   if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2)) || typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `It's vulnerable pokémon type...`;
+    let result = `It's a vulnerable pokémon type...`;
     window.alert(result);
     points -= 10;
 
@@ -352,7 +352,7 @@ function scoreBoard(points) {
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
-  await friendPkmn1(fetchPkmn, randomNumber());
+  await friendPkmn1(fetchPkmn, 20);
   await friendPkmn2(fetchPkmn, randomNumber());
   await friendPkmn3(fetchPkmn, randomNumber());
   pickPkmn();

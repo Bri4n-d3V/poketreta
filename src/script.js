@@ -358,7 +358,7 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if (!(Math.floor(Math.random() * 7) === 0)) {
+    if ((Math.floor(Math.random() * 7) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -400,7 +400,7 @@ function battleCalculator() {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if (!(Math.floor(Math.random() * 7) === 0)) {
+    if ((Math.floor(Math.random() * 7) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {

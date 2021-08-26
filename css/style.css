@@ -27,14 +27,14 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 
 main {
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  min-height: 100vh;
 }
 
 /* Header */
@@ -68,10 +68,10 @@ header img {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: row-reverse;
-  width: 100%;
+  width: 100vw;
   justify-content: space-evenly;
   align-content: center;
-  min-height: 30vh;
+  min-height: 50%;
 }
 
 .enemy-container {
@@ -82,8 +82,8 @@ header img {
   border: 1px outset rgb(255, 0, 0);
   text-align: center;
   align-items: center;
-  height: 19vh;
-  width: 19vh;
+  height: 180px;
+  width: 180px;
   padding: 30px 40px;
   border-radius: 50%;
   cursor: pointer;
@@ -92,7 +92,7 @@ header img {
 .friend-container {
   display: flex;
   flex-direction: column;
-  margin-top: 30vh;
+  margin-top: 25vh;
   justify-content: space-evenly;
   text-align: center;
   border: 1px outset rgb(0, 60, 255);
@@ -149,6 +149,7 @@ header img {
   padding: 6px 0;
   justify-content: space-around;
   border: solid 6px rgb(102, 53, 40);
+  height: 40vh;
 }
 
 .inventario>.option {
@@ -177,10 +178,6 @@ header img {
   background-color: rgb(4, 54, 54);
 }
 
-.inventario>.option>div {
-  justify-content: space-evenly;
-  text-align: center;
-}
 
 /* button */
 #battle-btn {

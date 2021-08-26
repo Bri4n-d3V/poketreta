@@ -288,9 +288,10 @@ function battleCalculator() {
 
 
   if (friendPkmn.type1 === 'normal' || friendPkmn.type2 === 'normal') {
-    let result = `It's very Normal...`;
-    window.alert(result);
+
     if ((Math.floor(Math.random() * 3) === 0)) {
+      let result = `Is very Normal, loser...`;
+      window.alert(result);
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -311,10 +312,13 @@ function battleCalculator() {
           telaPkmn(numero);
         }
       })(posição - 1);
+      
       return;
     } else {
       points += 10
       scoreBoard(points);
+      let result = `Is very Normal, win...`;
+      window.alert(result);
       enemyPkmn(fetchPkmn, randomNumber());
       return;
     }

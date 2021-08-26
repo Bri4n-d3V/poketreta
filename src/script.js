@@ -213,15 +213,15 @@ function telaPkmn(index) {
 function pickPkmn() {
   const option = document.querySelectorAll('.option');
 
-    option.forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
-      document.querySelector('#battle-btn').disabled = false;
-      telaPkmn(index);
-      // Muda calssa SELECTED para que possa mudar a cor do friend pkmn selecionado.
-      for (let j = 0; j < option.length; j += 1) {
-        option[j].classList.remove('selected');
-      }
-      pkmn.classList.add('selected');
-    }));
+  option.forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
+    document.querySelector('#battle-btn').disabled = false;
+    telaPkmn(index);
+    // Muda calssa SELECTED para que possa mudar a cor do friend pkmn selecionado.
+    for (let j = 0; j < option.length; j += 1) {
+      option[j].classList.remove('selected');
+    }
+    pkmn.classList.add('selected');
+  }));
 }
 
 // executa o jogo ao clicar no botão 'battle'.
@@ -239,67 +239,67 @@ function battleCalculator() {
   const type2 = friendPkmn.type2
 
 
-  
-    // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
-    if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-      let result = `It's super effective! type 1`;
-      window.alert(result);
+  // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
+  if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `It's super effective! type 1`;
+    window.alert(result);
+    points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+
+    return;
+  }
+  // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
+
+  if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `It's super effective!`;
+    window.alert(result);
+    points += 10;
+    enemyNumber = Math.floor(Math.random() * 152) + 1;
+    scoreBoard(points);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  }
+  if (friendPkmn.type1 === 'normal') {
+
+    let result = `It's not very effective...`;
+    window.alert(result);
+    if (Math.floor(Math.random() * 2) === 0) {
+      points -= 10;
+      scoreBoard(points);
+      return;
+    } else {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
       scoreBoard(points);
       enemyPkmn(fetchPkmn, enemyNumber);
-
       return;
-    };
-    // caso de vitoria comparando o type 2 do amigo contra os type 1 e 2 do inimigo 
+    }
 
-    if (typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+  }
+  if (friendPkmn.type2 === 'normal') {
 
-      let result = `It's super effective!`;
-      window.alert(result);
+    let result = `It's not very effective...`;
+    window.alert(result);
+    if (Math.floor(Math.random() * 2) === 0) {
+      points -= 10;
+      scoreBoard(points);
+      return;
+    } else {
       points += 10;
       enemyNumber = Math.floor(Math.random() * 152) + 1;
       scoreBoard(points);
       enemyPkmn(fetchPkmn, enemyNumber);
       return;
-    };
-    if (friendPkmn.type1 === 'normal') {
-
-      let result = `It's not very effective...`;
-      window.alert(result);
-      if (Math.floor(Math.random() * 2) === 0) {
-        points -= 10;
-        scoreBoard(points);
-        return;
-      } else {
-        points += 10;
-        enemyNumber = Math.floor(Math.random() * 152) + 1;
-        scoreBoard(points);
-        enemyPkmn(fetchPkmn, enemyNumber);
-        return;
-      }
-
-    };
-    if (friendPkmn.type2 === 'normal') {
-
-      let result = `It's not very effective...`;
-      window.alert(result);
-      if (Math.floor(Math.random() * 2) === 0) {
-        points -= 10;
-        scoreBoard(points);
-        return;
-      } else {
-        points += 10;
-        enemyNumber = Math.floor(Math.random() * 152) + 1;
-        scoreBoard(points);
-        enemyPkmn(fetchPkmn, enemyNumber);
-        return;
-      }
+    }
 
 
-    };
-    
+  }
+
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
 
   if (typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
@@ -344,13 +344,27 @@ function battleCalculator() {
       if (numero == 0) {
         friendNumber1 = Math.floor(Math.random() * 152) + 1;
         await friendPkmn1(fetchPkmn, friendNumber1);
-        telaPkmn(numero);
-
-      } else if (numero == 1) {
         friendNumber2 = Math.floor(Math.random() * 152) + 1;
         await friendPkmn2(fetchPkmn, friendNumber2);
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
         telaPkmn(numero);
-      } else if (numero == 2) {
+
+      }
+      if (numero == 1) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+      if (numero == 2) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
         friendNumber3 = Math.floor(Math.random() * 152) + 1;
         await friendPkmn3(fetchPkmn, friendNumber3);
         telaPkmn(numero);
@@ -359,6 +373,10 @@ function battleCalculator() {
     enemyPkmn(fetchPkmn, enemyNumber);
     return;
   };
+
+
+
+  
 };
 
 function scoreBoard(points) {

@@ -315,13 +315,13 @@ function battleCalculator() {
           telaPkmn(numero);
         }
       })(posição - 1);
-      let result = `Is very Normal, loser...`;
+      let result = `It's not a very effective... bad lucky for you.`;
       window.alert(result);
       return;
     } else {
       points += 10
       scoreBoard(points);
-      let result = `Is very Normal, win...`;
+      let result = `It's not a very effective... but you took the advantage!`;
       window.alert(result);
       enemyPkmn(fetchPkmn, randomNumber());
       return;

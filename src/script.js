@@ -112,10 +112,10 @@ async function fetchPkmn(id) {
 };
 
 // Adicionar comentário.
-function pcDado(obj, objs, index) {
-  obj
-  obj[index] = objs;
-  return obj;
+function pcDado(array, objs, index) {
+  array
+  array[index] = objs;
+  return array;
 };
 
 

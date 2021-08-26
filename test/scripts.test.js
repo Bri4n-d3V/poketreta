@@ -13,10 +13,10 @@ const {
     battleCalculator
 } = require("../src/script");
 
-jest.mock("../src/script");
 
 
-fetchPkmn.mockImplementation(async () => ({
+
+const tes = {
 
 
     "id": 413,
@@ -56,7 +56,7 @@ fetchPkmn.mockImplementation(async () => ({
             }
         }
     ]
-}))
+}
 
 
 

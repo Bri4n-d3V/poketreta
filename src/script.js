@@ -264,41 +264,7 @@ function battleCalculator() {
     enemyPkmn(fetchPkmn, enemyNumber);
     return;
   }
-  if (friendPkmn.type1 === 'normal') {
 
-    let result = `It's not very effective...`;
-    window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) {
-      points -= 10;
-      scoreBoard(points);
-      return;
-    } else {
-      points += 10;
-      enemyNumber = Math.floor(Math.random() * 152) + 1;
-      scoreBoard(points);
-      enemyPkmn(fetchPkmn, enemyNumber);
-      return;
-    }
-
-  }
-  if (friendPkmn.type2 === 'normal') {
-
-    let result = `It's not very effective...`;
-    window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) {
-      points -= 10;
-      scoreBoard(points);
-      return;
-    } else {
-      points += 10;
-      enemyNumber = Math.floor(Math.random() * 152) + 1;
-      scoreBoard(points);
-      enemyPkmn(fetchPkmn, enemyNumber);
-      return;
-    }
-
-
-  }
 
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
 
@@ -343,7 +309,7 @@ function battleCalculator() {
     })(posição - 1);
     enemyPkmn(fetchPkmn, enemyNumber);
     return;
-  };
+  }
 
   if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
@@ -386,6 +352,42 @@ function battleCalculator() {
     })(posição - 1);
     enemyPkmn(fetchPkmn, enemyNumber);
     return;
+
+  }
+  if (friendPkmn.type1 === 'normal') {
+
+    let result = `It's not very effective...`;
+    window.alert(result);
+    if (Math.floor(Math.random() * 2) === 0) {
+      points -= 10;
+      scoreBoard(points);
+      return;
+    } else {
+      points += 10;
+      enemyNumber = Math.floor(Math.random() * 152) + 1;
+      scoreBoard(points);
+      enemyPkmn(fetchPkmn, enemyNumber);
+      return;
+    }
+
+  }
+  if (friendPkmn.type2 === 'normal') {
+
+    let result = `It's not very effective...`;
+    window.alert(result);
+    if (Math.floor(Math.random() * 2) === 0) {
+      points -= 10;
+      scoreBoard(points);
+      return;
+    } else {
+      points += 10;
+      enemyNumber = Math.floor(Math.random() * 152) + 1;
+      scoreBoard(points);
+      enemyPkmn(fetchPkmn, enemyNumber);
+      return;
+    }
+
+
   } else { // para todos tipos de acordo com a typesTable  
 
     let result = `2 pato na lagoa `;
@@ -420,6 +422,7 @@ function battleCalculator() {
     enemyPkmn(fetchPkmn, enemyNumber);
     return;
   }
+
 
 
 };

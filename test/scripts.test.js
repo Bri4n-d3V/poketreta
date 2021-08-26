@@ -41,8 +41,7 @@ fetchPkmn.mockImplementation(async () => ({
         "name": "diamond-pearl",
         "url": "https://pokeapi.co/api/v2/version-group/8/"
     },
-    "types": [
-        {
+    "types": [{
             "slot": 1,
             "type": {
                 "name": "grass",
@@ -57,20 +56,73 @@ fetchPkmn.mockImplementation(async () => ({
             }
         }
     ]
-}
-))
-describe('Name of the group', () => {
-    it('should ', async() => {
-      await battleCalculator();
+}))
+
+
+
+
+
+
+describe('testa a função fetchPkmn', () => {
+    it('should ', async () => {
+        await fetchPkmn();
+    });
+});
+describe('testa a função enemyPkmn', () => {
+    it('should ', async () => {
+        await enemyPkmn();
+    });
+});
+describe('testa a função friendPkmn', () => {
+    it('should ', async () => {
+        await friendPkmn1();
     });
     it('verifica dados retornaados', async () => {
-        fetchPkmn(413).then((Pkmn) => {
-            expect(Pkmn.name).toEqual('wormadam-plant');
-            expect(Pkmn.sprites.front_default).toEqual("http://pokeapi.co/media/sprites/pokemon/413.png");
-            expect(Pkmn.sprites.back_default).toEqual("http://pokeapi.co/media/sprites/pokemon/back/413.png")
-            expect(Pkmn.types[0].type.name).toEqual("grass");
-            expect(Pkmn.types[1].type.name).toEqual("poison");
-        })
+        await friendPkmn2()
+
+    })
+    it('verifica dados retornaados', async () => {
+        await friendPkmn3()
+
     })
 });
 
+describe('testa a função pickPkmn', () => {
+    it('should ', async () => {
+        await pickPkmn();
+    });
+});
+
+describe('battleBtn', () => {
+    it('should ', async () => {
+        await battleBtn();
+    });
+
+});
+
+describe('battleCalculator', () => {
+    it('should ', async () => {
+        await battleCalculator();
+    });
+
+});
+
+describe('scoreBoard', () => {
+    it('should ', async () => {
+       // await scoreBoard();
+    });
+
+});
+
+describe('Name of the group', () => {
+    it('should ', async () => {
+        await battleCalculator();
+    });
+
+});
+
+describe('telaPkmn', () => {
+    it('should ', async () => {
+     //   await telaPkmn();
+    });
+});

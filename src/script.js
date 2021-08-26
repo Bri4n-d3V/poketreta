@@ -209,13 +209,33 @@ function telaPkmn(index) {
   };
 };
 
+// Muda calssa SELECTED para que possa mudar a cor do friend pkmn selecionado.
+function changeClassSelected() {
+  const option = document.querySelectorAll('.option');
+  option.forEach(pkmn => {
+    pkmn.addEventListener('click', () => {
+      for (let j = 0; j < option.length; j += 1) {
+        option[j].classList.remove('selected');
+      }
+      pkmn.classList.add('selected');
+    });
+  });
+};
+
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
-const pickPkmn = _ => document
-  .querySelectorAll('.option')
-  .forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
-    document.querySelector('#battle-btn').disabled = false;
-    telaPkmn(index);
-  }));
+function pickPkmn() {
+  const option = document.querySelectorAll('.inventario');
+
+    option.forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
+      document.querySelector('#battle-btn').disabled = false;
+      telaPkmn(index);
+      for (let j = 0; j < option.length; j += 1) {
+        option[j].classList.remove('selected');
+      }
+      pkmn.classList.add('selected');
+
+    }));
+}
 
 // executa o jogo ao clicar no botão 'battle'.
 function battleBtn() {
@@ -307,6 +327,7 @@ window.onload = async _ => {
   await friendPkmn1(fetchPkmn, friendNumber1);
   await friendPkmn2(fetchPkmn, friendNumber2);
   await friendPkmn3(fetchPkmn, friendNumber3);
+  await changeClassSelected(),
   await pickPkmn();
   await battleBtn();
 };

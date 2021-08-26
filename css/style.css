@@ -158,6 +158,11 @@ main {
 }
 
 .inventario > .option:hover {
+  border: solid 6px rgba(7, 84, 90, 0.5);
+  background-color: rgb(4, 54, 54, 0.5);
+}
+
+.inventario > .selected {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }

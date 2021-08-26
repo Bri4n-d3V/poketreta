@@ -55,7 +55,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-y: 60.2px;
-  background-size: 100% 61.4%;
+  background-size: 100vh 61.4vh;
 }
 
 .versus {
@@ -76,7 +76,7 @@ body {
   background-color: rgb(141, 91, 57);
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100vh;
   position: fixed;
   bottom: -2px;
   padding: 6px 0;

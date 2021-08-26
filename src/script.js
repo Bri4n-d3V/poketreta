@@ -361,6 +361,31 @@ function battleCalculator() {
     if (Math.floor(Math.random() * 2) === 0) {
       points -= 10;
       scoreBoard(points);
+      (async (numero) => {
+        console.log(numero)
+        if (numero == 0) {
+          friendNumber1 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn1(fetchPkmn, friendNumber1);
+  
+          telaPkmn(numero);
+  
+        }
+        if (numero == 1) {
+  
+          friendNumber2 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn2(fetchPkmn, friendNumber2);
+  
+  
+          telaPkmn(numero);
+        }
+        if (numero == 2) {
+          friendNumber3 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn3(fetchPkmn, friendNumber3);
+          telaPkmn(numero);
+        }
+      })(posição - 1);
+
+
       return;
     } else {
       points += 10;
@@ -378,6 +403,29 @@ function battleCalculator() {
     if (Math.floor(Math.random() * 2) === 0) {
       points -= 10;
       scoreBoard(points);
+      (async (numero) => {
+        console.log(numero)
+        if (numero == 0) {
+          friendNumber1 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn1(fetchPkmn, friendNumber1);
+  
+          telaPkmn(numero);
+  
+        }
+        if (numero == 1) {
+  
+          friendNumber2 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn2(fetchPkmn, friendNumber2);
+  
+  
+          telaPkmn(numero);
+        }
+        if (numero == 2) {
+          friendNumber3 = Math.floor(Math.random() * 152) + 1;
+          await friendPkmn3(fetchPkmn, friendNumber3);
+          telaPkmn(numero);
+        }
+      })(posição - 1);
       return;
     } else {
       points += 10;

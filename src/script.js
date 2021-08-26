@@ -347,12 +347,22 @@ function battleCalculator() {
 function scoreBoard(points) {
   const score = document.querySelector('#score');
   score.innerHTML = `score: ${points}`;
+  if (points <= -30) {
+    window.alert(`You lose...
+Please play again anytime soon! :)`)
+    document.location.reload(true);
+  }
+  if (points >= 100) {
+    window.alert (`YOU WON!
+Thank you for playing! :)`);
+    document.location.reload(true);
+  }
 }
 
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
-  await friendPkmn1(fetchPkmn, 20);
+  await friendPkmn1(fetchPkmn, randomNumber());
   await friendPkmn2(fetchPkmn, randomNumber());
   await friendPkmn3(fetchPkmn, randomNumber());
   pickPkmn();

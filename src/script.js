@@ -352,12 +352,12 @@ function scoreBoard(points) {
   if (points <= -30) {
     window.alert(`You lose...
 Please play again anytime soon! :)`)
-    document.location.reload(true);
+    document.location.reload();
   }
   if (points >= 100) {
     window.alert (`YOU WON!
 Thank you for playing! :)`);
-    document.location.reload(true);
+    document.location.reload();
   }
 }
 

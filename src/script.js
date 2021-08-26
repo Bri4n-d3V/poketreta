@@ -311,36 +311,7 @@ function battleCalculator() {
     scoreBoard(points);
 
     (async (numero) => {
-      console.log(numero)
-      if (numero == 0) {
-        friendNumber1 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn1(fetchPkmn, friendNumber1);
-        telaPkmn(numero);
 
-      } else if (numero == 1) {
-        friendNumber2 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn2(fetchPkmn, friendNumber2);
-        telaPkmn(numero);
-      } else if (numero == 2) {
-        friendNumber3 = Math.floor(Math.random() * 152) + 1;
-        await friendPkmn3(fetchPkmn, friendNumber3);
-        telaPkmn(numero);
-      }
-    })(posição - 1);
-    enemyPkmn(fetchPkmn, enemyNumber);
-    return;
-  };
-
-  if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
-
-    let result = `perdeu playboy `;
-    window.alert(result);
-    points -= 10;
-
-    scoreBoard(points);
-
-    (async (numero) => {
-      console.log(numero)
       if (numero == 0) {
         friendNumber1 = Math.floor(Math.random() * 152) + 1;
         await friendPkmn1(fetchPkmn, friendNumber1);
@@ -374,9 +345,83 @@ function battleCalculator() {
     return;
   };
 
+  if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
+
+    let result = `perdeu playboy `;
+    window.alert(result);
+    points -= 10;
+
+    scoreBoard(points);
+
+    (async (numero) => {
+
+      if (numero == 0) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+
+      }
+      if (numero == 1) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+      if (numero == 2) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+    })(posição - 1);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  } else { // para todos tipos de acordo com a typesTable  
+
+    let result = `2 pato na lagoa `;
+    window.alert(result);
+    points -= 0;
+
+    scoreBoard(points);
+
+    (async (numero) => {
+      console.log(numero)
+      if (numero == 0) {
+        friendNumber1 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn1(fetchPkmn, friendNumber1);
+
+        telaPkmn(numero);
+
+      }
+      if (numero == 1) {
+
+        friendNumber2 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn2(fetchPkmn, friendNumber2);
 
 
-  
+        telaPkmn(numero);
+      }
+      if (numero == 2) {
+        friendNumber3 = Math.floor(Math.random() * 152) + 1;
+        await friendPkmn3(fetchPkmn, friendNumber3);
+        telaPkmn(numero);
+      }
+    })(posição - 1);
+    enemyPkmn(fetchPkmn, enemyNumber);
+    return;
+  }
+
+
 };
 
 function scoreBoard(points) {

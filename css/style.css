@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  /* overflow: hidden; */
   color: rgb(221, 221, 221);
   font-family: mySecondFont;
   font-size: 10px;
@@ -27,7 +27,7 @@
 
 header {
   background-color: rgb(15, 26, 23);
-  position: fixed;
+
   display: flex;
   width: 100%;
   height: 60px;
@@ -51,56 +51,76 @@ header img {
 /* Main */
 /* Arena */
 .arena {
-  display: flex;
-  height: 100vh;
   background-image: url("../img/fundo.png");
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position-y: 60.2px;
-  background-size: 100% 68%;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  justify-content: space-around;
+  align-content: center;
+  min-height: 600px;
 }
 
 .enemy-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5ch;
   background-color: rgb(105, 40, 40);
   border: 1px outset rgb(255, 0, 0);
   text-align: center;
   align-items: center;
-  min-height: 190px;
-  min-width: 190px;
+  height: 190px;
+  width: 190px;
   padding: 30px 40px;
   border-radius: 50%;
-  position: absolute;
-  right: 16%;
-  top: 20%;
   cursor: pointer;
 }
 
 .friend-container {
-  position: absolute;
-  left: 16%;
-  top: 40%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35ch;
   justify-content: space-evenly;
   text-align: center;
   border: 1px outset rgb(0, 60, 255);
   background-color: rgb(40, 57, 105);
   border-radius: 50%;
-  padding: 12px 40px;
-  min-height: 190px;
-  min-width: 190px;
+  padding: 30px 40px;
+  height: 190px;
+  width: 190px;
   cursor: pointer;
 }
 
+
+.versus-container {
+  display: flex;
+  flex-direction: column;
+ 
+  justify-items: center;
+  margin-top: 23ch;
+}
+
+
 .versus {
-  background-color: rgb(206, 98, 59);
+  background-image: url('../img/pokebola.png');
+  animation: rotate 18s linear infinite;
+  background-size: 100% 100%;
   width: 120px;
   height: 120px;
-  margin: 17.85% 44.55%;
-  position: absolute;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 35px;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
 }
 
 /* Inventário */
@@ -109,7 +129,6 @@ header img {
   display: flex;
   align-items: center;
   width: 100%;
-  position: fixed;
   bottom: -2px;
   padding: 6px 0;
   justify-content: space-evenly;
@@ -144,44 +163,15 @@ header img {
 /* button */
 #battle-btn {
   /* background-color: rgb(102, 53, 40); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   border: none;
   color: rgb(95, 95, 95);
   font-weight: 800;
-  width: 80px;
   height: 45px;
-  position: absolute;
   margin: 0px;
-  top: 58%;
-  right: 47.8%;
   cursor: pointer;
-}
-
-/* Responsivo */
-@media screen and (max-width: 1131px) {
-  .versus {
-    top: -6%;
-    right: 1.8%;
-  }
-}
-
-@media screen and (max-width: 908px) {
-  .versus {
-    margin: 28.55% 42%;
-  }
-
-  #battle-btn {
-    /* background-color: rgb(102, 53, 40); */
-    border-radius: 50%;
-    border: none;
-    color: rgb(95, 95, 95);
-    font-weight: 800;
-    width: 80px;
-    height: 45px;
-    position: absolute;
-    margin: 0px;
-    top: 65%;
-    right: 45%;
-    cursor: pointer;
-  }
+  margin-top: 20ch;
 }

@@ -64,7 +64,7 @@ fetchPkmn.mockImplementation(async () => ({
 
 
 describe('testa a função fetchPkmn', () => {
-    it('should ', async () => {
+    it('shoud ', async () => {
         await fetchPkmn();
     });
 });

@@ -85,20 +85,17 @@ const typesTable = {
     ['poison', 'steel']
   ]
 }
-
 // chamada ao API do Pkmn que pega as informações desejadas (nome, spites (frente e costas), nome e tipos (1 e 2)).
 async function fetchPkmn(id) {
   try {
     const endpoint = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const resolve = await endpoint.json();
-
     const name = resolve.name;
     const spriteFront = resolve.sprites.front_default;
     const spriteBack = resolve.sprites.back_default;
     const type1 = resolve.types[0].type.name;
     let type2 = type1;
     if (resolve.types[1]) type2 = resolve.types[1].type.name;
-
     return {
       name,
       spriteFront,
@@ -110,15 +107,12 @@ async function fetchPkmn(id) {
     return await fetchPkmn(id); //tratar o erro 
   };
 };
-
 // Adicionar comentário.
 function pcDado(array, objs, index) {
   array
   array[index] = objs;
   return array;
 };
-
-
 // Gera via DOM o Pkmn inimigo aleatório com as informações desejadas.
 async function enemyPkmn(callback, param) {
   const enemyName = document.querySelector('#enemy-name');
@@ -136,7 +130,6 @@ async function enemyPkmn(callback, param) {
     enemyType2.innerHTML = pkmn.type2
   };
 };
-
 // Gera via DOM o Pkmn amigo 1 aleatório com as informações desejadas.
 async function friendPkmn1(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-1');
@@ -154,7 +147,6 @@ async function friendPkmn1(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   };
 };
-
 // Gera via DOM o Pkmn amigo 2 aleatório com as informações desejadas.
 async function friendPkmn2(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-2');
@@ -172,7 +164,6 @@ async function friendPkmn2(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   };
 };
-
 // Gera via DOM o Pkmn amigo 3 aleatório com as informações desejadas.
 async function friendPkmn3(callback, param) {
   const friendPkmnName = document.querySelector('#friend-name-3');
@@ -190,7 +181,6 @@ async function friendPkmn3(callback, param) {
     friendPkmnType2.innerHTML = pkmn.type2
   };
 };
-
 // Imprime no campo de batalha o pkmn selecionado com o evento de clique da função pickPkmn.
 function telaPkmn(index) {
   const pkmn = armazenamento[`${index + 1}`];
@@ -209,11 +199,9 @@ function telaPkmn(index) {
     friendType2.innerHTML = pkmn.type2;
   };
 };
-
 // Evento de clique que seleciona a DIV do PKMN amigo desejado e joga na função de imprimir no compo de batalha (telaPkmn).
 function pickPkmn() {
   const option = document.querySelectorAll('.option');
-
   option.forEach((pkmn, index) => pkmn.addEventListener('click', _ => {
     document.querySelector('#battle-btn').disabled = false;
     telaPkmn(index);
@@ -224,12 +212,10 @@ function pickPkmn() {
     pkmn.classList.add('selected');
   }));
 }
-
 // executa o jogo ao clicar no botão 'battle'.
 function battleBtn() {
   document.querySelector('#battle-btn').addEventListener('click', () => battleCalculator())
 }
-
 // calculo da batalha pkmn de acordo com os tipos.
 function battleCalculator() {
   const posição = armazenamento[4];
@@ -237,35 +223,26 @@ function battleCalculator() {
   const enemyPkmn1 = armazenamento[0];
   const type1 = friendPkmn.type1
   const type2 = friendPkmn.type2
-
   const bolSuperEffType1 = typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
   const bolSuperEffType2 = typesTable[type2][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
-
   const bolVulnerType1 = typesTable[type1][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
   const bolVulnerType2 = typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
-
-
   // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
   if (bolSuperEffType1 || bolSuperEffType2) { // para todos tipos de acordo com a typesTable  
-
     let result = `It's super effective!`;
     window.alert(result);
     points += 10;
     scoreBoard(points);
     enemyPkmn(fetchPkmn, randomNumber());
-    return;
   }
-
-
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
-
   if (bolVulnerType1 || bolVulnerType2) { // para todos tipos de acordo com a typesTable  
 
     let result = `It's a vulnerable pokémon type...`;
     window.alert(result);
     points -= 20;
 
-    scoreBoard(points);
+    scoreBoard(points); // editar 
 
     (async (numero) => {
       await friendPkmn1(fetchPkmn, randomNumber());
@@ -273,43 +250,32 @@ function battleCalculator() {
       await friendPkmn3(fetchPkmn, randomNumber());
       telaPkmn(numero);
     })(posição - 1);
-    return;
   }
-
-
 
   if (type1 === 'normal' || type2 === 'normal') {
     if ((Math.floor(Math.random() * 3) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
-        console.log(numero)
         if (numero == 0) {
-
           await friendPkmn1(fetchPkmn, randomNumber());
-          telaPkmn(numero);
         }
         if (numero == 1) {
-
           await friendPkmn2(fetchPkmn, randomNumber());
-          telaPkmn(numero);
         }
         if (numero == 2) {
-
           await friendPkmn3(fetchPkmn, randomNumber());
-          telaPkmn(numero);
         }
+        telaPkmn(numero);
       })(posição - 1);
       let result = `It's not a very effective... bad lucky for you.`;
       window.alert(result);
-      return;
     } else {
       points += 10
       scoreBoard(points);
       let result = `It's not a very effective... but you took the advantage!`;
       window.alert(result);
       enemyPkmn(fetchPkmn, randomNumber());
-      return;
     }
   } else { // para todos tipos de acordo com a typesTable  
     let result = `It's a draw.`;
@@ -332,7 +298,6 @@ function battleCalculator() {
       }
     })(posição - 1);
     enemyPkmn(fetchPkmn, randomNumber());
-    return;
   }
 };
 
@@ -351,7 +316,6 @@ Thank you for playing! :)`);
     document.location.reload();
   }
 }
-
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
@@ -361,7 +325,6 @@ window.onload = async _ => {
   pickPkmn();
   battleBtn();
 };
-
 // exporta funcoes para o arquivo de testes com jest
 module.exports = {
   fetchPkmn,

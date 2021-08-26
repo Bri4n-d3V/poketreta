@@ -243,7 +243,7 @@ function battleCalculator() {
   // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
   if (typesTable[type1][0].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `It's super effective! type 1`;
+    let result = `It's super effective!`;
     window.alert(result);
     points += 10;
     enemyNumber = Math.floor(Math.random() * 152) + 1;
@@ -313,7 +313,7 @@ function battleCalculator() {
 
   if (typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2))) { // para todos tipos de acordo com a typesTable  
 
-    let result = `perdeu playboy `;
+    let result = `It's vulnerable pokémon type...`;
     window.alert(result);
     points -= 10;
 
@@ -438,7 +438,7 @@ function battleCalculator() {
 
   } else { // para todos tipos de acordo com a typesTable  
 
-    let result = `2 pato na lagoa `;
+    let result = `It's a draw.`;
     window.alert(result);
     points -= 0;
 

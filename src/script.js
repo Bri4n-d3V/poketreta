@@ -396,11 +396,11 @@ function battleCalculator() {
     }
 
   }
-  if (!(Math.floor(Math.random() * 7) === 0)) {
+  if (friendPkmn.type2 === 'normal') {
 
     let result = `It's not very effective...`;
     window.alert(result);
-    if (Math.floor(Math.random() * 2) === 0) {
+    if (!(Math.floor(Math.random() * 7) === 0)) {
       points -= 10;
       scoreBoard(points);
       (async (numero) => {

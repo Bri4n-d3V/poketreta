@@ -331,6 +331,7 @@ window.onload = async _ => {
 };
 // exporta funcoes para o arquivo de testes com jest
 module.exports = {
+  armazenador,
   fetchPkmn,
   enemyPkmn,
   friendPkmn1,

@@ -4,6 +4,7 @@
 
 const {
     fetchPkmn,
+    armazenador,
     enemyPkmn,
     friendPkmn1,
     friendPkmn2,
@@ -69,6 +70,29 @@ describe('check the functioning of the API', () => {
         expect((await fetchPkmn()).type2).toBe("poison");
     });
 });
+
+describe("implement function test armazenador", () => {
+    it("check that the return is an array with the expected objects", () => {
+        const test = [
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass'
+            }
+          ]
+        const array = [];
+        const obj = {
+            name: "wormadam-plant",
+            spriteFront: "http://pokeapi.co/media/sprites/pokemon/413.png",
+            spriteBack: "http://pokeapi.co/media/sprites/pokemon/back/413.png",
+            type1: "grass",
+            type2: "grass",
+        }
+        expect(armazenador(array, obj, 0)).toEqual(test);
+    })
+})
 /* describe('testa a função enemyPkmn', () => {
     it('should ', async () => {
         await enemyPkmn();

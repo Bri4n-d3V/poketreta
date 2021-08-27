@@ -21,6 +21,7 @@
   color: rgb(221, 221, 221);
   font-family: mySecondFont;
   font-size: 10px;
+  overflow: hidden;
 }
 
 body {
@@ -30,11 +31,14 @@ body {
   height: 100%;
 }
 
+#score {
+  font-size: 12px;
+}
 
 main {
-  display: flex;
+/*   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 /* Header */
@@ -50,14 +54,20 @@ header {
   justify-content: space-evenly;
 }
 
-header h1 {
+.logo {
+ width: 40%;
+ 
+}
+
+.logo h1 {
   font-family: myFirstFont;
   font-size: 30px;
+  text-align: left;
+
 }
 
 header img {
   width: 48px;
-  padding-left: 20px;
 }
 
 /* Main */
@@ -125,14 +135,12 @@ header img {
   background-image: url('../img/pokebola.png');
   animation: rotate 18s linear infinite;
   background-size: 100% 100%;
-  width: 12vw;
-  height: 12vw;
-  display: flex;
-  align-items: center;
+  height: 100px;
+  width: 100px;
+
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 70px;
   justify-self: center;
-  align-self: center;
 }
 
 @keyframes rotate {
@@ -174,12 +182,12 @@ header img {
   cursor: pointer;
 }
 
-.inventario>.option:hover {
+.inventario > .option:hover {
   border: solid 6px rgba(7, 84, 90, 0.5);
   background-color: rgb(4, 54, 54, 0.5);
 }
 
-.inventario>.selected {
+.inventario > .selected {
   border: solid 6px rgb(7, 84, 90);
   background-color: rgb(4, 54, 54);
 }
@@ -188,9 +196,7 @@ header img {
 /* button */
 #battle-btn {
   /* background-color: rgb(102, 53, 40); */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*   align-items: center;
   border-radius: 50%;
   border: none;
   color: rgb(95, 95, 95);
@@ -198,5 +204,38 @@ header img {
   height: 45px;
   margin: 0px;
   cursor: pointer;
-  margin-top: 15%;
+  margin-top: 15%; */
+
+}
+
+.btn {
+  font-family: Arial;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: none;
+  font-weight: 700;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-top: 25px;
+/*   background:red;
+  color: rgb(196, 6, 6);
+  color: aliceblue; */
+}
+
+.btn-cor {
+  background:rgb(207, 50, 50);
+  color: rgb(255, 255, 255);
+  border-radius: 23px;
+}
+
+.btn-cor:hover {
+  background:rgb(231, 5, 5);
+  color: rgb(252, 252, 252);
+  box-shadow: 0 5px 0 rgb(0, 0, 0);
+}
+.btn-cor:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
 }

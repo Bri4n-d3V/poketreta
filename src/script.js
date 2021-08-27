@@ -344,4 +344,5 @@ module.exports = {
   battleCalculator,
   scoreBoard,
   telaPkmn,
+  armazenador,
 };

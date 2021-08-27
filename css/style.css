@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
   color: rgb(221, 221, 221);
   font-family: mySecondFont;
   font-size: 10px;
@@ -78,14 +78,17 @@ header img {
   display: flex;
   flex-direction: column;
   margin-top: 5vh;
+  margin-bottom: 30px;
+  justify-content: space-evenly;
+  text-align: center;
   background-color: rgb(105, 40, 40);
   border: 1px outset rgb(255, 0, 0);
-  text-align: center;
-  align-items: center;
-  height: 180px;
-  width: 180px;
-  padding: 30px 40px;
   border-radius: 50%;
+  padding: 30px 40px;
+  max-height: 180px;
+  min-height: 100px;
+  max-width: 180px;
+  min-width: 100px;
   cursor: pointer;
 }
 
@@ -100,8 +103,10 @@ header img {
   background-color: rgb(40, 57, 105);
   border-radius: 50%;
   padding: 30px 40px;
-  min-height: 190px;
-  min-width: 190px;
+  max-height: 180px;
+  min-height: 100px;
+  max-width: 180px;
+  min-width: 100px;
   cursor: pointer;
 }
 
@@ -120,8 +125,8 @@ header img {
   background-image: url('../img/pokebola.png');
   animation: rotate 18s linear infinite;
   background-size: 100% 100%;
-  width: 12vh;
-  height: 12vh;
+  width: 12vw;
+  height: 12vw;
   display: flex;
   align-items: center;
   justify-content: center;

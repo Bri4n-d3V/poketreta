@@ -254,8 +254,11 @@ function battleCalculator() {
     return;
   }
 
+
   if (type1 === 'normal' || type2 === 'normal') {
     if ((Math.floor(Math.random() * 3) === 0)) {
+      let result = `Is very Normal, loser...`;
+      window.alert(result);
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -270,13 +273,17 @@ function battleCalculator() {
         }
         telaPkmn(numero);
       })(posição - 1);
+
       alerta(`It's not a very effective... bad lucky for you.`);
       
       alerta
+
       return;
     } else {
       points += 10
       scoreBoard(points);
+
+
       alerta(`It's not a very effective... but you took the advantage!`)
       enemyPkmn(fetchPkmn, randomNumber());
       return;

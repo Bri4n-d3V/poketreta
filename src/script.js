@@ -323,6 +323,7 @@ Thank you for playing! :)`);
     document.location.reload();
   }
 }
+
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
@@ -331,6 +332,9 @@ window.onload = async _ => {
   await friendPkmn3(fetchPkmn, randomNumber());
   pickPkmn();
   battleBtn();
+  setTimeout (() => popUp(`Wellcome to POKéTRETA :)
+  1 - Chose your pokémon (you can change any time);
+  2 - Press the battle button.`), 500);
 };
 // exporta funcoes para o arquivo de testes com jest
 module.exports = {

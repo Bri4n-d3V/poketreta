@@ -73,7 +73,26 @@ describe('check the functioning of the API', () => {
 
 describe("implement function test armazenador", () => {
     it("check that the return is an array with the expected objects", () => {
-        const test = [
+
+        const array = [];
+
+        const testPokemon1 = [
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass',
+            }
+          ]
+          const testPokemon2 = [
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass'
+            },
             {
               name: 'wormadam-plant',
               spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
@@ -82,7 +101,29 @@ describe("implement function test armazenador", () => {
               type2: 'grass'
             }
           ]
-        const array = [];
+          const testPokemon3 = [
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass'
+            },
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass'
+            },
+            {
+              name: 'wormadam-plant',
+              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
+              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
+              type1: 'grass',
+              type2: 'grass'
+            }
+          ]
         const obj = {
             name: "wormadam-plant",
             spriteFront: "http://pokeapi.co/media/sprites/pokemon/413.png",
@@ -90,7 +131,10 @@ describe("implement function test armazenador", () => {
             type1: "grass",
             type2: "grass",
         }
-        expect(armazenador(array, obj, 0)).toEqual(test);
+        expect(armazenador(array, obj, 0)).toEqual(testPokemon1);
+        expect(armazenador(array, obj, 1)).toEqual(testPokemon2);
+        expect(armazenador(array, obj, 2)).toEqual(testPokemon3);
+        expect(array.length).toEqual(3)
     })
 })
 /* describe('testa a função enemyPkmn', () => {

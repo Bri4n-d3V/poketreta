@@ -1,8 +1,8 @@
-/*
+/**
  * @jest-environment jsdom
  */
 
- const {
+const {
     fetchPkmn,
     armazenador,
     enemyPkmn,
@@ -13,8 +13,8 @@
     battleBtn,
     battleCalculator
 } = require("../src/script");
- 
-jest.mock('node-fetch');
+  
+ jest.mock('node-fetch');
 
 const test = {
 
@@ -94,11 +94,11 @@ describe("implement function test armazenador", () => {
               type2: 'grass'
             },
             {
-              name: 'wormadam-plant',
-              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
-              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
-              type1: 'grass',
-              type2: 'grass'
+              name: 'magikarp',
+              spriteFront: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png',
+              spriteBack: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png',
+              type1: 'water',
+              type2: 'water'
             }
           ]
           const testPokemon3 = [
@@ -110,18 +110,18 @@ describe("implement function test armazenador", () => {
               type2: 'grass'
             },
             {
-              name: 'wormadam-plant',
-              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
-              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
-              type1: 'grass',
-              type2: 'grass'
+                name: 'magikarp',
+                spriteFront: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png',
+                spriteBack: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png',
+                type1: 'water',
+                type2: 'water'
             },
             {
-              name: 'wormadam-plant',
-              spriteFront: 'http://pokeapi.co/media/sprites/pokemon/413.png',
-              spriteBack: 'http://pokeapi.co/media/sprites/pokemon/back/413.png',
-              type1: 'grass',
-              type2: 'grass'
+              name: 'hitmonchan',
+              spriteFront: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png',
+              spriteBack: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/107.png',
+              type1: 'fighting',
+              type2: 'fighting'
             }
           ]
         const obj = {
@@ -131,8 +131,25 @@ describe("implement function test armazenador", () => {
             type1: "grass",
             type2: "grass",
         }
+        const obj2 = {
+            name: 'magikarp',
+            spriteFront: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/129.png',
+            spriteBack: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/129.png',
+            type1: 'water',
+            type2: 'water'
+          }
+          const obj3 = {
+            name: 'hitmonchan',
+            spriteFront: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/107.png',
+            spriteBack: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/107.png',
+            type1: 'fighting',
+            type2: 'fighting'
+          }
         expect(armazenador(array, obj, 0)).toEqual(testPokemon1);
-        expect(armazenador(array, obj, 1)).toEqual(testPokemon2);
+        console.log(array)
+        expect(array.length).toEqual(1)
+        expect(armazenador(array, obj2, 1)).toEqual(testPokemon2);
+        expect(array.length).toEqual(2)
         expect(armazenador(array, obj, 2)).toEqual(testPokemon3);
         expect(array.length).toEqual(3)
     })

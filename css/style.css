@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow: hidden; */
+  overflow: hidden;
   color: rgb(221, 221, 221);
   font-family: mySecondFont;
   font-size: 10px;
@@ -27,7 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
 }
 
 
@@ -92,7 +92,8 @@ header img {
 .friend-container {
   display: flex;
   flex-direction: column;
-  margin-top: 25vh;
+  margin-top: 23.55vh;
+  margin-bottom: 30px;
   justify-content: space-evenly;
   text-align: center;
   border: 1px outset rgb(0, 60, 255);

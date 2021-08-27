@@ -241,7 +241,7 @@ function battleCalculator() {
   if (bolVulnerType1 || bolVulnerType2) { // para todos tipos de acordo com a typesTable  
 
     popUp(`It's a vulnerable pokémon type...`);
-    points -= 20;
+    points -= randomNumber();
 
     scoreBoard(points); // editar 
 
@@ -326,9 +326,9 @@ Thank you for playing! :)`);
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
-  await friendPkmn1(fetchPkmn, 20);
-  await friendPkmn2(fetchPkmn, 20);
-  await friendPkmn3(fetchPkmn, 20);
+  await friendPkmn1(fetchPkmn, randomNumber());
+  await friendPkmn2(fetchPkmn, randomNumber());
+  await friendPkmn3(fetchPkmn, randomNumber());
   pickPkmn();
   battleBtn();
 };

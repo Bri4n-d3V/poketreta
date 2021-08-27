@@ -213,9 +213,9 @@ function pickPkmn() {
 function battleBtn() {
   document.querySelector('#battle-btn').addEventListener('click', () => battleCalculator())
 }
-//função para simplifica e testa a implementação de alerta
-//para troca o alerta por outra função basta fazer aqui a implementação 
-function alerta(string) {
+//função para simplifica e testa a implementação de popUp
+//para troca o popUp por outra função basta fazer aqui a implementação 
+function popUp(string) {
   window.alert(string)
 }
 // calculo da batalha pkmn de acordo com os tipos.
@@ -231,7 +231,7 @@ function battleCalculator() {
   const bolVulnerType2 = typesTable[type2][1].some((type) => (type == enemyPkmn1.type1 || type == enemyPkmn1.type2));
   // caso de vitoria comparando o type 1 do amigo contra os type 1 e 2 do inimigo 
   if (bolSuperEffType1 || bolSuperEffType2) { // para todos tipos de acordo com a typesTable  
-    alerta(`It's super effective!`);
+    popUp(`It's super effective!`);
     points += 10;
     scoreBoard(points);
     enemyPkmn(fetchPkmn, randomNumber());
@@ -240,7 +240,7 @@ function battleCalculator() {
   // caso de detorta comparando o type 1 do amigo contra os type 1 e 2 do inimigo
   if (bolVulnerType1 || bolVulnerType2) { // para todos tipos de acordo com a typesTable  
 
-    alerta(`It's a vulnerable pokémon type...`);
+    popUp(`It's a vulnerable pokémon type...`);
     points -= 20;
 
     scoreBoard(points); // editar 
@@ -257,8 +257,6 @@ function battleCalculator() {
 
   if (type1 === 'normal' || type2 === 'normal') {
     if ((Math.floor(Math.random() * 3) === 0)) {
-      let result = `Is very Normal, loser...`;
-      window.alert(result);
       points -= 10;
       scoreBoard(points);
       (async (numero) => {
@@ -274,22 +272,20 @@ function battleCalculator() {
         telaPkmn(numero);
       })(posição - 1);
 
-      alerta(`It's not a very effective... bad lucky for you.`);
+      popUp(`It's not a very effective... bad lucky for you.`);
       
-      alerta
-
       return;
     } else {
       points += 10
       scoreBoard(points);
 
 
-      alerta(`It's not a very effective... but you took the advantage!`)
+      popUp(`It's not a very effective... but you took the advantage!`)
       enemyPkmn(fetchPkmn, randomNumber());
       return;
     }
   } else { // para todos tipos de acordo com a typesTable  
-    alerta(`It's a draw.`);
+    popUp(`It's a draw.`);
       points -= 0;
     scoreBoard(points);
     (async (numero) => {
@@ -317,12 +313,12 @@ function scoreBoard(points) {
   const score = document.querySelector('#score');
   score.innerHTML = `score: ${points}`;
   if (points <= -30) {
-    alerta(`You lose...
+    popUp(`You lose...
 Please play again anytime soon! :)`)
     document.location.reload();
   }
   if (points >= 100) {
-    alerta(`YOU WON!
+    popUp(`YOU WON!
 Thank you for playing! :)`);
     document.location.reload();
   }
@@ -330,9 +326,9 @@ Thank you for playing! :)`);
 // Chamada das funções ao carregar a página.
 window.onload = async _ => {
   await enemyPkmn(fetchPkmn, randomNumber());
-  await friendPkmn1(fetchPkmn, randomNumber());
-  await friendPkmn2(fetchPkmn, randomNumber());
-  await friendPkmn3(fetchPkmn, randomNumber());
+  await friendPkmn1(fetchPkmn, 20);
+  await friendPkmn2(fetchPkmn, 20);
+  await friendPkmn3(fetchPkmn, 20);
   pickPkmn();
   battleBtn();
 };

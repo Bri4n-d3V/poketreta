@@ -80,7 +80,7 @@ header img {
   margin-top: 5vh;
   margin-bottom: 30px;
   justify-content: space-evenly;
-  text-align: center;
+ align-items: center;
   background-color: rgb(105, 40, 40);
   border: 1px outset rgb(255, 0, 0);
   border-radius: 50%;
@@ -98,7 +98,7 @@ header img {
   margin-top: 23.55vh;
   margin-bottom: 30px;
   justify-content: space-evenly;
-  text-align: center;
+  align-items: center;
   border: 1px outset rgb(0, 60, 255);
   background-color: rgb(40, 57, 105);
   border-radius: 50%;

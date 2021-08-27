@@ -102,6 +102,15 @@ header img {
   cursor: pointer;
 }
 
+.enemy-container > div {
+  overflow: hidden;
+}
+
+.friend-container > div {
+  overflow: hidden;
+} 
+
+
 .friend-container {
   display: flex;
   flex-direction: column;

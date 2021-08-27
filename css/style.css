@@ -21,7 +21,7 @@
   color: rgb(221, 221, 221);
   font-family: mySecondFont;
   font-size: 10px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -163,7 +163,7 @@ header img {
   padding: 6px 0;
   justify-content: space-around;
   border: solid 6px rgb(102, 53, 40);
-  height: 40vh;
+  height: 48vh;
 }
 
 .inventario>.option {
@@ -232,7 +232,7 @@ header img {
 .btn-cor:hover {
   background:rgb(231, 5, 5);
   color: rgb(252, 252, 252);
-  box-shadow: 0 5px 0 rgb(0, 0, 0);
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.39);
 }
 .btn-cor:active {
   position: relative;
